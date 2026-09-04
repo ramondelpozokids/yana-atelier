@@ -1206,8 +1206,7 @@
       .atelier-case.reverse .case-photo { order: 0; }
     }
   </style>
-  <link rel="stylesheet" href="asistente.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="asistente.css"></noscript>
+  <link rel="stylesheet" href="asistente.css">
 </head>
 
 <body>
@@ -2357,28 +2356,6 @@
     loadMapWhenVisible();
   });
 </script>
-  <script>
-    (function () {
-      function loadAsistente() {
-        if (window.__yanaAsistente) return;
-        window.__yanaAsistente = true;
-        var s = document.createElement('script');
-        s.src = 'asistente.js';
-        s.defer = true;
-        document.body.appendChild(s);
-      }
-      function onInteract() {
-        loadAsistente();
-      }
-      ['pointerdown', 'keydown', 'scroll'].forEach(function (ev) {
-        window.addEventListener(ev, onInteract, { once: true, passive: true });
-      });
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadAsistente, { timeout: 6000 });
-      } else {
-        setTimeout(loadAsistente, 4000);
-      }
-    })();
-  </script>
+  <script src="asistente.js" defer></script>
 </body>
 </html>

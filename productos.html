@@ -16,8 +16,7 @@
   <meta property="og:title" content="Productos | Yana Yavorskaya Atelier">
   <meta property="og:description" content="Selección privada de prendas y calzado. Precios negociables. Madrid.">
   <title>Productos | Yana Yavorskaya Atelier</title>
-  <link rel="stylesheet" href="asistente.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="asistente.css"></noscript>
+  <link rel="stylesheet" href="asistente.css">
   <style>
     :root {
       --color-bg: #ffffff;
@@ -675,26 +674,7 @@
     <a class="lightbox-wa" id="lb-wa" href="#" target="_blank" rel="noopener" onclick="event.stopPropagation()">WhatsApp</a>
   </div>
 
-  <script>
-    (function () {
-      function loadAsistente() {
-        if (window.__yanaAsistente) return;
-        window.__yanaAsistente = true;
-        var s = document.createElement('script');
-        s.src = 'asistente.js';
-        s.defer = true;
-        document.body.appendChild(s);
-      }
-      ['pointerdown', 'keydown', 'scroll'].forEach(function (ev) {
-        window.addEventListener(ev, loadAsistente, { once: true, passive: true });
-      });
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadAsistente, { timeout: 6000 });
-      } else {
-        setTimeout(loadAsistente, 4000);
-      }
-    })();
-  </script>
+  <script src="asistente.js" defer></script>
   <script>
     const catalog = [
       { src: 'images/blusa-camuflaje.webp', kicker: 'Blusa · Ref. 01', title: 'Blusa Camuflaje', meta: 'Talla M · Excelente estado', desc: 'Diseño casual, tejido fluido y estampado militar en rosa, azul y marrón.', price: '20 €', wa: 'Hola%2C%20me%20interesa%20la%20Blusa%20Camuflaje%20(20%20%E2%82%AC)' },

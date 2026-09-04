@@ -17,9 +17,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://images.unsplash.com">
   
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Fonts: non-blocking so FCP is not waiting on Google -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"></noscript>
   
   <!-- Preload critical resources -->
   <link rel="preload" href="logo-yy.webp" as="image" type="image/webp">
@@ -1201,7 +1201,8 @@
       .atelier-case.reverse .case-photo { order: 0; }
     }
   </style>
-  <link rel="stylesheet" href="asistente.css">
+  <link rel="stylesheet" href="asistente.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="asistente.css"></noscript>
 </head>
 
 <body>
@@ -2075,9 +2076,8 @@
     </div>
   </div>
 
-  <!-- Scripts con defer para carga optimizada -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script defer>
+  <!-- Scripts: Leaflet se carga solo al acercarse al mapa -->
+  <script>
   // ===== SLIDER =====
   let currentSlide = 0;
   const slides = document.querySelectorAll('.slide');
@@ -2318,10 +2318,38 @@
       .openPopup();
   }
 
+  function loadMapWhenVisible() {
+    const el = document.getElementById('map');
+    if (!el) return;
+    const start = () => {
+      if (window.__yanaMapStarted) return;
+      window.__yanaMapStarted = true;
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      document.head.appendChild(css);
+      const s = document.createElement('script');
+      s.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      s.onload = initMap;
+      document.body.appendChild(s);
+    };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some(e => e.isIntersecting)) {
+          io.disconnect();
+          start();
+        }
+      }, { rootMargin: '240px' });
+      io.observe(el);
+    } else {
+      start();
+    }
+  }
+
   // ===== INITIALIZE =====
   document.addEventListener('DOMContentLoaded', () => {
     checkCookies();
-    initMap();
+    loadMapWhenVisible();
   });
 </script>
   <script src="asistente.js" defer></script>

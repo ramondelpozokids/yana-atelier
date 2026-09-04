@@ -485,10 +485,10 @@
         <div class="footer-section">
           <h4>Legal</h4>
           <ul class="footer-links">
-            <li><a href="#" onclick="openModal('avisoLegal'); return false;">Aviso Legal</a></li>
-            <li><a href="#" onclick="openModal('privacidad'); return false;">Política de Privacidad</a></li>
-            <li><a href="#" onclick="openModal('cookies'); return false;">Política de Cookies</a></li>
-            <li><a href="#" onclick="openModal('mapaSitio'); return false;">Mapa del sitio</a></li>
+            <li><a href="#avisoLegal" onclick="openModal('avisoLegal'); return false;">Aviso Legal</a></li>
+            <li><a href="#privacidad" onclick="openModal('privacidad'); return false;">Política de Privacidad</a></li>
+            <li><a href="#cookies" onclick="openModal('cookies'); return false;">Política de Cookies</a></li>
+            <li><a href="#mapaSitio" onclick="openModal('mapaSitio'); return false;">Mapa del sitio</a></li>
           </ul>
         </div>
 
@@ -642,9 +642,9 @@
         <div>
           <h3>Legal</h3>
           <ul class="footer-links">
-            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('avisoLegal'); return false;">Aviso Legal</a></li>
-            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('privacidad'); return false;">Política de Privacidad</a></li>
-            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('cookies'); return false;">Política de Cookies</a></li>
+            <li><a href="#avisoLegal" onclick="closeModal('mapaSitio'); openModal('avisoLegal'); return false;">Aviso Legal</a></li>
+            <li><a href="#privacidad" onclick="closeModal('mapaSitio'); openModal('privacidad'); return false;">Política de Privacidad</a></li>
+            <li><a href="#cookies" onclick="closeModal('mapaSitio'); openModal('cookies'); return false;">Política de Cookies</a></li>
           </ul>
           <h3>Contacto directo</h3>
           <ul class="footer-links">
@@ -675,7 +675,26 @@
     <a class="lightbox-wa" id="lb-wa" href="#" target="_blank" rel="noopener" onclick="event.stopPropagation()">WhatsApp</a>
   </div>
 
-  <script src="asistente.js" defer></script>
+  <script>
+    (function () {
+      function loadAsistente() {
+        if (window.__yanaAsistente) return;
+        window.__yanaAsistente = true;
+        var s = document.createElement('script');
+        s.src = 'asistente.js';
+        s.defer = true;
+        document.body.appendChild(s);
+      }
+      ['pointerdown', 'keydown', 'scroll'].forEach(function (ev) {
+        window.addEventListener(ev, loadAsistente, { once: true, passive: true });
+      });
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadAsistente, { timeout: 6000 });
+      } else {
+        setTimeout(loadAsistente, 4000);
+      }
+    })();
+  </script>
   <script>
     const catalog = [
       { src: 'images/blusa-camuflaje.webp', kicker: 'Blusa · Ref. 01', title: 'Blusa Camuflaje', meta: 'Talla M · Excelente estado', desc: 'Diseño casual, tejido fluido y estampado militar en rosa, azul y marrón.', price: '20 €', wa: 'Hola%2C%20me%20interesa%20la%20Blusa%20Camuflaje%20(20%20%E2%82%AC)' },

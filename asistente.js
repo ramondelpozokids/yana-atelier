@@ -89,7 +89,9 @@
     el.className = 'chat-msg ' + who;
     el.textContent = text;
     log.appendChild(el);
-    log.scrollTop = log.scrollHeight;
+    requestAnimationFrame(function () {
+      el.scrollIntoView({ block: 'end', inline: 'nearest' });
+    });
   }
 
   function ask(log, text) {

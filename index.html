@@ -261,9 +261,12 @@
     
     .slide.active { opacity: 1; }
 
+    .slide.lcp-hero {
+      background-image: url('header-camisas.webp');
+    }
     @media (max-width: 768px) {
       .slide.lcp-hero {
-        background-image: url('header-camisas-m.webp') !important;
+        background-image: url('header-camisas-m.webp');
       }
     }
     
@@ -272,6 +275,8 @@
       z-index: 2;
       max-width: 900px;
       padding: var(--space-8);
+    }
+    .slide.active .slide-content {
       animation: slideUp 1s ease-out;
     }
     
@@ -1210,7 +1215,7 @@
   <!-- Navigation -->
   <nav class="nav" role="navigation" aria-label="Navegación principal">
     <div class="container nav-container">
-      <a href="#" class="logo">
+      <a href="#inicio" class="logo">
         <img class="logo-ysl" src="logo-yy.webp" alt="Logo Yana Yavorskaya - YY entrelazadas doradas" width="75" height="75">
         <div>
           <div class="logo-text">YANA YAVORSKAYA</div>
@@ -1238,7 +1243,7 @@
 
   <!-- Hero Slider -->
   <section class="hero-slider" id="inicio" role="banner">
-    <div class="slide active lcp-hero" style="background-image: url('header-camisas.webp');">
+    <div class="slide active lcp-hero">
       <div class="slide-content">
         <h1>Yana Yavorskaya</h1>
         <p class="tagline">Donde cada puntada cuenta una historia</p>
@@ -1747,7 +1752,7 @@
               <label style="display: flex; align-items: flex-start; gap: var(--space-2); cursor: pointer;">
                 <input type="checkbox" required style="width: auto; margin-top: 4px;" name="privacidad">
                 <span style="font-size: 0.875rem; color: var(--color-text-light);">
-                  Acepto la <a href="#" onclick="openModal('privacidad')" style="text-decoration: underline;">política de privacidad</a> y el tratamiento de mis datos para gestionar mi consulta. *
+                  Acepto la <a href="#privacidad" onclick="openModal('privacidad'); return false;" style="text-decoration: underline;">política de privacidad</a> y el tratamiento de mis datos para gestionar mi consulta. *
                 </span>
               </label>
             </div>
@@ -1868,10 +1873,10 @@
         <div class="footer-section">
           <h4>Legal</h4>
           <ul class="footer-links">
-            <li><a href="#" onclick="openModal('avisoLegal'); return false;">Aviso Legal</a></li>
-            <li><a href="#" onclick="openModal('privacidad'); return false;">Política de Privacidad</a></li>
-            <li><a href="#" onclick="openModal('cookies'); return false;">Política de Cookies</a></li>
-            <li><a href="#" onclick="openModal('mapaSitio'); return false;">Mapa del sitio</a></li>
+            <li><a href="#avisoLegal" onclick="openModal('avisoLegal'); return false;">Aviso Legal</a></li>
+            <li><a href="#privacidad" onclick="openModal('privacidad'); return false;">Política de Privacidad</a></li>
+            <li><a href="#cookies" onclick="openModal('cookies'); return false;">Política de Cookies</a></li>
+            <li><a href="#mapaSitio" onclick="openModal('mapaSitio'); return false;">Mapa del sitio</a></li>
           </ul>
         </div>
         
@@ -1903,7 +1908,7 @@
     <div class="cookie-content">
       <div class="cookie-text">
         Utilizamos cookies técnicas y recursos de terceros (fuentes y mapa) para que el sitio funcione.
-        <a onclick="openModal('cookies')" style="cursor: pointer;">Más información</a>.
+        <a href="#cookies" onclick="openModal('cookies'); return false;">Más información</a>.
       </div>
       <div class="cookie-buttons">
         <button class="cookie-btn reject" onclick="rejectCookies()">Rechazar</button>
@@ -2061,9 +2066,9 @@
         <div>
           <h3>Legal</h3>
           <ul class="footer-links">
-            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('avisoLegal'); return false;">Aviso Legal</a></li>
-            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('privacidad'); return false;">Política de Privacidad</a></li>
-            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('cookies'); return false;">Política de Cookies</a></li>
+            <li><a href="#avisoLegal" onclick="closeModal('mapaSitio'); openModal('avisoLegal'); return false;">Aviso Legal</a></li>
+            <li><a href="#privacidad" onclick="closeModal('mapaSitio'); openModal('privacidad'); return false;">Política de Privacidad</a></li>
+            <li><a href="#cookies" onclick="closeModal('mapaSitio'); openModal('cookies'); return false;">Política de Cookies</a></li>
           </ul>
           <h3>Contacto directo</h3>
           <ul class="footer-links">
@@ -2125,8 +2130,8 @@
     slideInterval = setInterval(nextSlide, 6000);
   }
 
-  applySlideBg(slides[1]);
   slideInterval = setInterval(nextSlide, 6000);
+  setTimeout(function () { applySlideBg(slides[1]); }, 4500);
 
   // ===== MOBILE MENU =====
   function toggleMenu() {
@@ -2352,6 +2357,28 @@
     loadMapWhenVisible();
   });
 </script>
-  <script src="asistente.js" defer></script>
+  <script>
+    (function () {
+      function loadAsistente() {
+        if (window.__yanaAsistente) return;
+        window.__yanaAsistente = true;
+        var s = document.createElement('script');
+        s.src = 'asistente.js';
+        s.defer = true;
+        document.body.appendChild(s);
+      }
+      function onInteract() {
+        loadAsistente();
+      }
+      ['pointerdown', 'keydown', 'scroll'].forEach(function (ev) {
+        window.addEventListener(ev, onInteract, { once: true, passive: true });
+      });
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadAsistente, { timeout: 6000 });
+      } else {
+        setTimeout(loadAsistente, 4000);
+      }
+    })();
+  </script>
 </body>
 </html>

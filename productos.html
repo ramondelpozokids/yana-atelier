@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Selección privada de prendas y calzado de Yana Yavorskaya Atelier. Precios negociables. Madrid.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yanayavorskaya.com/productos.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="logo-yy.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yanayavorskaya.com/productos.html">
+  <meta property="og:title" content="Productos | Yana Yavorskaya Atelier">
+  <meta property="og:description" content="Selección privada de prendas y calzado. Precios negociables. Madrid.">
+  <title>Productos | Yana Yavorskaya Atelier</title>
+  <link rel="stylesheet" href="asistente.css">
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-bg-alt: #f9f7f4;
+      --color-bg-dark: #0a0a0a;
+      --color-text: #1a1a1a;
+      --color-text-light: #6b6b6b;
+      --color-text-inverse: #ffffff;
+      --color-accent: #c8b8a6;
+      --color-accent-dark: #b5a391;
+      --color-border: rgba(0,0,0,0.08);
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-6: 1.5rem; --space-8: 2rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem; --space-32: 8rem;
+      --container-max: 1280px;
+      --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { font-family: var(--font-sans); font-size: 1rem; line-height: 1.7; color: var(--color-text); background: var(--color-bg); }
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; line-height: 1.2; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4rem); margin-bottom: var(--space-6); }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: var(--space-8); }
+    h3 { font-size: 1.35rem; margin-bottom: var(--space-3); }
+    p { color: var(--color-text-light); margin-bottom: var(--space-4); }
+    .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-8); }
+    .text-center { text-align: center; }
+    a { color: inherit; text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--color-accent); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+    .logo { display: flex; align-items: center; gap: var(--space-4); }
+    .logo-ysl { width: 75px; height: 75px; object-fit: contain; }
+    .logo-text { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 500; letter-spacing: 3px; line-height: 1; }
+    .logo-tagline { font-size: 0.65rem; color: var(--color-text-light); letter-spacing: 3px; text-transform: uppercase; margin-top: 4px; }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.98); z-index: 1000; padding: var(--space-4) 0; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    .nav-menu { display: flex; gap: var(--space-8); list-style: none; align-items: center; }
+    .nav-menu a { font-size: 0.875rem; font-weight: 500; letter-spacing: 0.05em; position: relative; }
+    .nav-menu a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--color-accent); transition: width var(--transition); }
+    .nav-menu a:hover::after, .nav-menu a[aria-current="page"]::after { width: 100%; }
+    .nav-menu a[aria-current="page"] { color: var(--color-accent); font-weight: 600; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: var(--space-2); }
+    .nav-toggle span { display: block; width: 25px; height: 2px; background: var(--color-text); margin: 5px 0; }
+
+    .page-hero {
+      margin-top: 110px;
+      padding: var(--space-24) 0 var(--space-16);
+      background: var(--color-bg-alt);
+      text-align: center;
+    }
+    .page-hero p { max-width: 62ch; margin: 0 auto; font-size: 1.15rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+      padding: 0.9rem 1.6rem; background: var(--color-accent); color: #fff;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 50px; border: 2px solid transparent; cursor: pointer;
+    }
+    .btn:hover { background: var(--color-accent-dark); color: #fff; }
+    .btn-outline { background: transparent; border-color: var(--color-accent); color: var(--color-text); }
+    .btn-outline:hover { background: var(--color-accent); color: #fff; }
+
+    .catalog { padding: var(--space-20) 0 var(--space-32); }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-8);
+      margin-top: var(--space-12);
+    }
+    .product-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .product-media { position: relative; aspect-ratio: 3/4; background: #f4f2ef; overflow: hidden; cursor: zoom-in; }
+    .product-media img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: contain; object-position: center; background: #f4f2ef;
+      transition: opacity 0.4s ease;
+    }
+    .product-media img.alt { opacity: 0; }
+    .product-card:hover .product-media img.alt { opacity: 1; }
+    .product-card:hover .product-media img.primary.has-alt { opacity: 0; }
+    .product-body { padding: var(--space-6); display: flex; flex-direction: column; flex: 1; }
+    .product-kicker { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent-dark); margin-bottom: 6px; }
+    .product-body h3 { color: var(--color-text); }
+    .product-meta { font-size: 0.85rem; color: var(--color-text-light); margin-bottom: var(--space-3); }
+    .product-price { font-family: var(--font-serif); font-size: 1.8rem; color: var(--color-text); margin: auto 0 var(--space-4); }
+    .product-price small { font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-dark); margin-left: 8px; }
+    .product-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+    .lots { margin-top: var(--space-24); padding: var(--space-12); background: var(--color-bg-alt); border-radius: 8px; }
+    .lots-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-6); margin-top: var(--space-8); }
+    .lot { text-align: center; background: #fff; border: 1px solid var(--color-border); padding: var(--space-8) var(--space-4); border-radius: 8px; }
+    .lot .name { font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-dark); }
+    .lot .val { font-family: var(--font-serif); font-size: 2rem; margin-top: var(--space-3); }
+    .lot .note { font-size: 0.85rem; color: var(--color-text-light); margin-top: 6px; font-style: italic; }
+
+    footer { background: var(--color-bg-dark); color: var(--color-text-inverse); padding: var(--space-24) 0 var(--space-8); }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-12); margin-bottom: var(--space-12); }
+    .footer-section h4 { color: var(--color-accent); margin-bottom: var(--space-6); font-size: 1.1rem; }
+    .footer-section p, .footer-section a { color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.8; }
+    .footer-section a:hover { color: var(--color-accent); }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: var(--space-2); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--space-8); text-align: center; color: rgba(255,255,255,0.5); font-size: 0.875rem; }
+    .social-links { display: flex; gap: var(--space-3); margin-top: var(--space-4); flex-wrap: wrap; }
+    .social-links a {
+      width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center; color: white; transition: all var(--transition);
+    }
+    .social-links a:hover { background: var(--color-accent); transform: translateY(-4px); color: white; }
+    .social-links svg { width: 20px; height: 20px; fill: currentColor; }
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 10000; overflow-y: auto; padding: var(--space-8); }
+    .modal.active { display: flex; align-items: center; justify-content: center; }
+    .modal-content { background: var(--color-bg); max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; padding: var(--space-12); border-radius: 8px; position: relative; }
+    .modal-close { position: absolute; top: var(--space-4); right: var(--space-4); background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--color-text); width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+    .modal-close:hover { background: var(--color-bg-alt); color: var(--color-accent); }
+    .modal h2 { margin-bottom: var(--space-6); padding-bottom: var(--space-4); border-bottom: 2px solid var(--color-accent); }
+    .modal h3 { margin: var(--space-6) 0 var(--space-3); color: var(--color-text); }
+    .modal p, .modal ul { margin-bottom: var(--space-4); color: var(--color-text-light); }
+    .modal ul { margin-left: var(--space-6); }
+    .modal li { margin-bottom: var(--space-2); }
+    .sitemap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6) var(--space-8); }
+    @media (max-width: 640px) { .sitemap-grid { grid-template-columns: 1fr; } }
+    .sitemap-grid h3 { margin-top: 0; }
+    .sitemap-grid a { text-decoration: underline; text-underline-offset: 3px; }
+
+    .lightbox {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.94);
+      z-index: 10000; align-items: center; justify-content: center; padding: 72px 72px 96px;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-inner {
+      display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+      gap: 28px; align-items: center; max-width: 1100px; width: 100%; max-height: 100%;
+    }
+    .lightbox-inner img { width: 100%; max-height: 78vh; object-fit: contain; background: #111; }
+    .lightbox-info { color: #fff; }
+    .lightbox-info .kicker { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 8px; }
+    .lightbox-info h3 { color: #fff; font-size: 1.8rem; margin-bottom: 8px; }
+    .lightbox-info p { color: rgba(255,255,255,0.78); }
+    .lightbox-info .price { font-family: var(--font-serif); font-size: 2rem; color: #fff; margin: 12px 0 0; }
+    .lightbox-info .price small { font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); margin-left: 8px; }
+    .lightbox-close, .lightbox-nav {
+      position: absolute; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.45); color: white;
+      width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.8rem;
+      display: flex; align-items: center; justify-content: center; z-index: 2;
+    }
+    .lightbox-close { top: var(--space-4); right: var(--space-4); }
+    .lightbox-nav.prev { left: var(--space-4); top: 50%; transform: translateY(-50%); }
+    .lightbox-nav.next { right: var(--space-4); top: 50%; transform: translateY(-50%); }
+    .lightbox-wa {
+      position: absolute; left: var(--space-6); bottom: var(--space-6);
+      background: #25D366; color: #fff; padding: 0.9rem 1.4rem; border-radius: 50px; font-weight: 600;
+    }
+    .lightbox-wa:hover { color: #fff; background: #128C7E; }
+    .lightbox-count { position: absolute; top: var(--space-6); left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.7); font-size: 0.8rem; letter-spacing: 0.12em; }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: white; flex-direction: column; padding: var(--space-4);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+      .nav-menu.active { display: flex; }
+      .nav-toggle { display: block; }
+      .logo-ysl { width: 55px; height: 55px; }
+      .product-actions { flex-direction: column; }
+      .product-actions .btn { width: 100%; }
+      .social-links a { width: 40px; height: 40px; }
+      .modal-content { padding: var(--space-6); }
+      .lightbox { padding: 64px 12px 88px; }
+      .lightbox-inner { grid-template-columns: 1fr; gap: 16px; }
+      .lightbox-inner img { max-height: 46vh; }
+      .lightbox-nav { width: 42px; height: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" role="navigation" aria-label="Navegación principal">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img class="logo-ysl" src="logo-yy.png" alt="Logo Yana Yavorskaya" width="75" height="75">
+        <div>
+          <div class="logo-text">YANA YAVORSKAYA</div>
+          <div class="logo-tagline">Alta Costura Madrid</div>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="Menú" onclick="document.getElementById('navMenu').classList.toggle('active')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#sobre">Sobre mí</a></li>
+        <li><a href="index.html#servicios">Servicios</a></li>
+        <li><a href="index.html#galeria">Galería</a></li>
+        <li><a href="index.html#tarifas">Tarifas</a></li>
+        <li><a href="productos.html" aria-current="page">Productos</a></li>
+        <li><a href="index.html#clases">Clases</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <h1>Selección privada</h1>
+      <p>Prendas y calzado con precios abiertos a oferta. Envío o entrega en Madrid. Medidas exactas bajo petición.</p>
+    </div>
+  </header>
+
+  <main class="catalog">
+    <div class="container">
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="product-media" onclick="openPhoto(0)">
+            <img class="primary" src="images/blusa-camuflaje.jpeg" alt="Blusa camuflaje en tonos rosa, azul y marrón" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-kicker">Blusa · Ref. 01</div>
+            <h3>Blusa Camuflaje</h3>
+            <p class="product-meta">Talla M · Excelente estado</p>
+            <p>Diseño casual, tejido fluido y estampado militar en rosa, azul y marrón.</p>
+            <div class="product-price">20 €<small>negociable</small></div>
+            <div class="product-actions">
+              <a class="btn" href="https://wa.me/34638753937?text=Hola%2C%20me%20interesa%20la%20Blusa%20Camuflaje%20(20%20%E2%82%AC)">WhatsApp</a>
+              <a class="btn btn-outline" href="index.html#contacto">Consultar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media" onclick="openPhoto(1)">
+            <img class="primary has-alt" src="images/falda-tejano-1.jpeg" alt="Falda tejano corazones, vista frontal" loading="lazy">
+            <img class="alt" src="images/falda-tejano-2.jpeg" alt="Falda tejano corazones, detalle" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-kicker">Falda · Ref. 02</div>
+            <h3>Falda Tejano Corazones</h3>
+            <p class="product-meta">Talla M · Nueva · Confección propia</p>
+            <p>Corte en A, pieza artesanal en denim con estampado de corazones y bajo deshilachado.</p>
+            <div class="product-price">20 €<small>negociable</small></div>
+            <div class="product-actions">
+              <a class="btn" href="https://wa.me/34638753937?text=Hola%2C%20me%20interesa%20la%20Falda%20Tejano%20Corazones%20(20%20%E2%82%AC)">WhatsApp</a>
+              <a class="btn btn-outline" href="index.html#contacto">Consultar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media" onclick="openPhoto(3)">
+            <img class="primary" src="images/falda-estampada-azul.jpeg" alt="Falda estampada azul y violeta" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-kicker">Falda · Ref. 03</div>
+            <h3>Falda Estampada Azul</h3>
+            <p class="product-meta">Talla L · Nueva</p>
+            <p>Estampado de puntos azules y violetas, ligera y con forro interior.</p>
+            <div class="product-price">20 €<small>negociable</small></div>
+            <div class="product-actions">
+              <a class="btn" href="https://wa.me/34638753937?text=Hola%2C%20me%20interesa%20la%20Falda%20Estampada%20Azul%20(20%20%E2%82%AC)">WhatsApp</a>
+              <a class="btn btn-outline" href="index.html#contacto">Consultar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media" onclick="openPhoto(4)">
+            <img class="primary has-alt" src="images/falda-espiga-1.jpeg" alt="Falda de lana espiga, vista posterior" loading="lazy">
+            <img class="alt" src="images/falda-espiga-2.jpeg" alt="Falda de lana espiga, detalle" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-kicker">Falda · Ref. 04</div>
+            <h3>Falda Espiga Lana</h3>
+            <p class="product-meta">Talla M · Muy bien cuidada</p>
+            <p>Lana de alta calidad, detalle de volantes y cinta inferior en tono oscuro.</p>
+            <div class="product-price">20 €<small>negociable</small></div>
+            <div class="product-actions">
+              <a class="btn" href="https://wa.me/34638753937?text=Hola%2C%20me%20interesa%20la%20Falda%20Espiga%20Lana%20(20%20%E2%82%AC)">WhatsApp</a>
+              <a class="btn btn-outline" href="index.html#contacto">Consultar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media" onclick="openPhoto(6)">
+            <img class="primary has-alt" src="images/falda-floral-1.jpeg" alt="Falda floral crema, vista general" loading="lazy">
+            <img class="alt" src="images/falda-floral-2.jpeg" alt="Falda floral crema, talle y botones" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-kicker">Falda · Ref. 05</div>
+            <h3>Falda Floral Crema</h3>
+            <p class="product-meta">Talla M · Excelente estado</p>
+            <p>Talle alto con abotonadura frontal y vuelo, estampado floral en rosa y verde.</p>
+            <div class="product-price">20 €<small>negociable</small></div>
+            <div class="product-actions">
+              <a class="btn" href="https://wa.me/34638753937?text=Hola%2C%20me%20interesa%20la%20Falda%20Floral%20Crema%20(20%20%E2%82%AC)">WhatsApp</a>
+              <a class="btn btn-outline" href="index.html#contacto">Consultar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media" onclick="openPhoto(8)">
+            <img class="primary has-alt" src="images/falda-patchwork-1.jpeg" alt="Falda patchwork naranja y blanco" loading="lazy">
+            <img class="alt" src="images/falda-patchwork-2.jpeg" alt="Falda patchwork, detalle de encaje" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-kicker">Falda · Ref. 06</div>
+            <h3>Falda Patchwork Boho</h3>
+            <p class="product-meta">Talla M · Excelente · Confección propia</p>
+            <p>Paneles naranja, amarillo y blanco, encaje y costura vista.</p>
+            <div class="product-price">25 €<small>negociable</small></div>
+            <div class="product-actions">
+              <a class="btn" href="https://wa.me/34638753937?text=Hola%2C%20me%20interesa%20la%20Falda%20Patchwork%20Boho%20(25%20%E2%82%AC)">WhatsApp</a>
+              <a class="btn btn-outline" href="index.html#contacto">Consultar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media" onclick="openPhoto(10)">
+            <img class="primary" src="images/falda-encaje-menta.jpeg" alt="Falda de encaje beige con cintas menta" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-kicker">Falda · Ref. 07</div>
+            <h3>Falda Encaje Menta</h3>
+            <p class="product-meta">Talla M · Excelente · Confección propia</p>
+            <p>Capas de encaje beige, bordados y cintas en tono menta.</p>
+            <div class="product-price">25 €<small>negociable</small></div>
+            <div class="product-actions">
+              <a class="btn" href="https://wa.me/34638753937?text=Hola%2C%20me%20interesa%20la%20Falda%20Encaje%20Menta%20(25%20%E2%82%AC)">WhatsApp</a>
+              <a class="btn btn-outline" href="index.html#contacto">Consultar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media" onclick="openPhoto(11)">
+            <img class="primary has-alt" src="images/zapatos-tacon-1.jpeg" alt="Zapatos de tacón azul eléctrico, vista interior" loading="lazy">
+            <img class="alt" src="images/zapatos-tacon-2.jpeg" alt="Zapatos de tacón azul eléctrico, perfil" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-kicker">Zapatos · Ref. 08</div>
+            <h3>Zapatos Tacón Azules</h3>
+            <p class="product-meta">Talla 37 · Buen estado</p>
+            <p>Ante azul eléctrico con tira al tobillo y tacón fino.</p>
+            <div class="product-price">25 €<small>negociable</small></div>
+            <div class="product-actions">
+              <a class="btn" href="https://wa.me/34638753937?text=Hola%2C%20me%20interesan%20los%20Zapatos%20Tac%C3%B3n%20Azules%20(25%20%E2%82%AC)">WhatsApp</a>
+              <a class="btn btn-outline" href="index.html#contacto">Consultar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media" onclick="openPhoto(13)">
+            <img class="primary has-alt" src="images/botines-oxford-1.jpeg" alt="Botines oxford de piel, tres cuartos" loading="lazy">
+            <img class="alt" src="images/botines-oxford-2.jpeg" alt="Botines oxford de piel, perfil" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-kicker">Botines · Ref. 09</div>
+            <h3>Botines Oxford Piel</h3>
+            <p class="product-meta">Talla 37 · Muy buen estado</p>
+            <p>Piel camel, brogue, cordones y cremallera interior.</p>
+            <div class="product-price">30 €<small>negociable</small></div>
+            <div class="product-actions">
+              <a class="btn" href="https://wa.me/34638753937?text=Hola%2C%20me%20interesan%20los%20Botines%20Oxford%20Piel%20(30%20%E2%82%AC)">WhatsApp</a>
+              <a class="btn btn-outline" href="index.html#contacto">Consultar</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-media" onclick="openPhoto(15)">
+            <img class="primary has-alt" src="images/zapatos-charol-1.jpeg" alt="Zapatos charol café Zinda, frente" loading="lazy">
+            <img class="alt" src="images/zapatos-charol-2.jpeg" alt="Zapatos charol café Zinda, perfil" loading="lazy">
+          </div>
+          <div class="product-body">
+            <div class="product-kicker">Zapatos · Ref. 10</div>
+            <h3>Zapatos Charol Café</h3>
+            <p class="product-meta">Talla 37 · Nuevos · Zinda</p>
+            <p>Charol de piel con detalle de flecos en la punta. Sin estrenar.</p>
+            <div class="product-price">45 €<small>negociable</small></div>
+            <div class="product-actions">
+              <a class="btn" href="https://wa.me/34638753937?text=Hola%2C%20me%20interesan%20los%20Zapatos%20Charol%20Caf%C3%A9%20Zinda%20(45%20%E2%82%AC)">WhatsApp</a>
+              <a class="btn btn-outline" href="index.html#contacto">Consultar</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <section class="lots" aria-labelledby="lots-title">
+        <h2 id="lots-title" class="text-center">Ofertas por lote</h2>
+        <div class="lots-grid">
+          <div class="lot">
+            <div class="name">Pack 2 faldas</div>
+            <div class="val">35 €</div>
+            <div class="note">Combinación libre</div>
+          </div>
+          <div class="lot">
+            <div class="name">Pack calzado</div>
+            <div class="val">85 €</div>
+            <div class="note">Los tres pares</div>
+          </div>
+          <div class="lot">
+            <div class="name">Lote completo</div>
+            <div class="val">Consultar</div>
+            <div class="note">Precio a convenir</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Yana Yavorskaya Atelier</h4>
+          <p>
+            Alta costura artesanal en Madrid.<br>
+            Donde cada puntada cuenta una historia.
+          </p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="X" title="X">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Enlaces Rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#galeria">Galería</a></li>
+            <li><a href="index.html#tarifas">Tarifas</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="openModal('avisoLegal'); return false;">Aviso Legal</a></li>
+            <li><a href="#" onclick="openModal('privacidad'); return false;">Política de Privacidad</a></li>
+            <li><a href="#" onclick="openModal('cookies'); return false;">Política de Cookies</a></li>
+            <li><a href="#" onclick="openModal('mapaSitio'); return false;">Mapa del sitio</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <p>
+            📍 Calle González Soto, 40, planta 1B<br>
+            28038 Madrid<br><br>
+            📞 638 753 937<br>
+            ✉️ yana140764@gmail.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Yana Yavorskaya Atelier — Madrid. Todos los derechos reservados.</p>
+        <p style="margin-top: var(--space-2); font-size: 0.75rem;">
+          Hecho con ✦ y pasión por la costura
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/34638753937" aria-label="Contactar por WhatsApp">WhatsApp</a>
+
+  <div class="modal" id="avisoLegal" role="dialog" aria-modal="true" aria-labelledby="aviso-legal-title">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('avisoLegal')" aria-label="Cerrar">&times;</button>
+      <h2 id="aviso-legal-title">Aviso Legal</h2>
+      <p><em>Última actualización: 28 de agosto de 2026.</em></p>
+      <h3>1. Datos identificativos</h3>
+      <p>En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los siguientes datos:</p>
+      <ul>
+        <li><strong>Titular:</strong> Yana Yavorskaya</li>
+        <li><strong>Nombre comercial:</strong> Yana Yavorskaya Atelier</li>
+        <li><strong>Actividad:</strong> alta costura, ajuste, transformación de prendas y clases de costura, con cita previa</li>
+        <li><strong>Domicilio:</strong> Calle González Soto, 40, planta 1B, 28038 Madrid (España)</li>
+        <li><strong>Teléfono:</strong> 638 753 937</li>
+        <li><strong>Email:</strong> yana140764@gmail.com</li>
+        <li><strong>Web:</strong> https://yanayavorskaya.com</li>
+      </ul>
+      <h3>2. Objeto</h3>
+      <p>Este aviso regula el acceso, navegación y uso del sitio web, así como las responsabilidades derivadas de la consulta de contenidos y del uso de los formularios de contacto. El acceso implica la aceptación de estas condiciones.</p>
+      <h3>3. Condiciones de uso</h3>
+      <p>El usuario se compromete a hacer un uso lícito, diligente y de buena fe del sitio, sin lesionar derechos de terceros ni utilizarlo para enviar publicidad no solicitada, virus o contenidos ilícitos. Queda prohibido extraer de forma masiva datos o contenidos (scraping) sin autorización.</p>
+      <p>Los precios, plazos y descripciones de servicios son orientativos. Cada encargo se confirma de forma personalizada. La atención es exclusivamente bajo cita previa.</p>
+      <h3>4. Propiedad intelectual e industrial</h3>
+      <p>Textos, fotografías, logotipo, diseño, marcas y resto de contenidos son titularidad de Yana Yavorskaya o se usan con licencia. Queda prohibida su reproducción, distribución, comunicación pública o transformación sin autorización escrita, salvo el derecho de cita o usos permitidos por ley.</p>
+      <p>Las imágenes de trabajos muestran transformaciones reales del atelier. Otras imágenes pueden ser de archivo o ilustrativas.</p>
+      <h3>5. Responsabilidad</h3>
+      <p>Se procura que la información sea veraz y esté actualizada, sin garantizar la ausencia total de errores o de interrupciones del servicio (fallos de red, del hosting o de terceros). El titular no responde del uso que el usuario haga de la información ni de daños causados por un uso indebido del sitio.</p>
+      <p>Los enlaces a Instagram, Facebook, X, YouTube, WhatsApp, OpenStreetMap u otros sitios son responsabilidad de sus titulares.</p>
+      <h3>6. Comunicaciones</h3>
+      <p>Para cualquier notificación relacionada con este sitio, el canal preferente es yana140764@gmail.com. También puede usarse el teléfono o WhatsApp indicados en la web.</p>
+      <h3>7. Legislación y fuero</h3>
+      <p>Este aviso se rige por la legislación española. Para controversias, las partes se someten a los juzgados de Madrid, salvo que la normativa de consumidores imponga otro fuero.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="privacidad" role="dialog" aria-modal="true" aria-labelledby="privacidad-title">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('privacidad')" aria-label="Cerrar">&times;</button>
+      <h2 id="privacidad-title">Política de Privacidad</h2>
+      <p><em>Última actualización: 28 de agosto de 2026. Reglamento (UE) 2016/679 (RGPD) y Ley Orgánica 3/2018 (LOPDGDD).</em></p>
+      <h3>1. Responsable del tratamiento</h3>
+      <p><strong>Yana Yavorskaya</strong> (Yana Yavorskaya Atelier)<br>
+      Calle González Soto, 40, planta 1B, 28038 Madrid<br>
+      Email: yana140764@gmail.com · Teléfono: 638 753 937</p>
+      <h3>2. Datos que se recogen</h3>
+      <p>A través del formulario de contacto: nombre, teléfono, correo electrónico, tipo de servicio, mensaje y aceptación de esta política. Si escribes o llamas por WhatsApp, teléfono o email, se tratan los datos que tú facilites en esa conversación.</p>
+      <p>No se solicitan datos de categorías especiales (salud, ideología, etc.). No uses el formulario para enviar esa información.</p>
+      <h3>3. Finalidades y base jurídica</h3>
+      <ul>
+        <li><strong>Gestionar consultas, citas y encargos:</strong> ejecución de medidas precontractuales o del contrato (art. 6.1.b RGPD) y, en el formulario, tu consentimiento (art. 6.1.a).</li>
+        <li><strong>Atención por WhatsApp, teléfono o email:</strong> interés legítimo en responder (art. 6.1.f) y/o medidas precontractuales.</li>
+        <li><strong>Facturación y obligaciones legales:</strong> obligación legal (art. 6.1.c).</li>
+        <li><strong>Comunicaciones comerciales</strong> (novedades o ofertas): solo si das un consentimiento claro y separado. No se envía publicidad por el mero hecho de consultar.</li>
+      </ul>
+      <h3>4. Destinatarios y encargados</h3>
+      <p>Tus datos no se venden. Pueden acceder a ellos:</p>
+      <ul>
+        <li><strong>FormSubmit</strong> (formsubmit.co), para entregar el mensaje del formulario al correo del atelier. Este proveedor puede tratar datos fuera del Espacio Económico Europeo; el envío implica que aceptas esa transferencia para poder contactarnos por el formulario.</li>
+        <li>WhatsApp (Meta), si eliges ese canal.</li>
+        <li>Administración pública, cuando exista obligación legal.</li>
+        <li>Hosting y correo electrónico, en calidad de encargados o prestadores del servicio.</li>
+      </ul>
+      <h3>5. Conservación</h3>
+      <p>Las consultas se conservan el tiempo necesario para gestionarlas y, como máximo, 3 años desde el último contacto, salvo que deban bloquearse por plazos de reclamación o facturación (hasta los plazos fiscales, habitualmente 4 años o los que fije la normativa).</p>
+      <h3>6. Derechos</h3>
+      <p>Puedes ejercer acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <strong>yana140764@gmail.com</strong>, indicando el derecho y adjuntando copia del DNI u otro documento identificativo. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+      <p>Si el tratamiento se basa en consentimiento, puedes retirarlo en cualquier momento, sin afectar a la licitud anterior.</p>
+      <h3>7. Menores</h3>
+      <p>Los servicios se dirigen a personas mayores de 18 años. Si un menor envía datos, el titular los suprimirá cuando tenga constancia.</p>
+      <h3>8. Seguridad y cambios</h3>
+      <p>Se aplican medidas razonables para proteger los datos. Ningún envío por internet es 100 % seguro. Esta política puede actualizarse; la fecha figura al inicio.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="cookies" role="dialog" aria-modal="true" aria-labelledby="cookies-title">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('cookies')" aria-label="Cerrar">&times;</button>
+      <h2 id="cookies-title">Política de Cookies</h2>
+      <p><em>Última actualización: 28 de agosto de 2026. Ley 34/2002 (LSSI) y directrices del RGPD sobre cookies.</em></p>
+      <h3>1. Qué son las cookies</h3>
+      <p>Son pequeños archivos que el sitio o un tercero guarda en tu dispositivo para recordar información (por ejemplo, si aceptaste este aviso). También pueden usarse tecnologías similares, como el almacenamiento local del navegador.</p>
+      <h3>2. Cookies y almacenamientos propios</h3>
+      <ul>
+        <li><strong>Preferencia de cookies</strong> (<code>cookiesAccepted</code> en el almacenamiento local): recuerda si aceptaste o rechazaste el aviso. Es técnica, necesaria para no mostrar el banner en cada visita. Duración: hasta que borres los datos del navegador.</li>
+      </ul>
+      <p>No se instala Google Analytics ni otras cookies de medición publicitaria en este sitio.</p>
+      <h3>3. Recursos de terceros</h3>
+      <p>Al cargar la página se solicitan recursos externos que pueden establecer cookies o registros según su propia política:</p>
+      <ul>
+        <li><strong>Google Fonts</strong> (fuentes): fonts.googleapis.com / fonts.gstatic.com.</li>
+        <li><strong>Mapa</strong> (Leaflet y teselas de OpenStreetMap): unpkg.com y tile.openstreetmap.org. El mapa muestra la ubicación del atelier.</li>
+        <li><strong>Formulario:</strong> el envío se hace a FormSubmit para reenviar el mensaje a yana140764@gmail.com.</li>
+        <li><strong>Imágenes</strong> de archivo alojadas en Unsplash, cuando se muestren en galería o cabecera.</li>
+      </ul>
+      <p>Estos servicios son ajenos al atelier. Consulta sus políticas si quieres más detalle sobre sus cookies.</p>
+      <h3>4. Cómo gestionarlas</h3>
+      <p>Puedes aceptar o rechazar el aviso del banner. El rechazo no impide usar la web; solo guarda tu preferencia para no volver a mostrarlo. También puedes borrar cookies y datos de sitios en la configuración de Chrome, Safari, Firefox o Edge, o usar la navegación privada.</p>
+      <p>Si bloqueas cookies de terceros, el mapa o las fuentes podrían verse afectados.</p>
+      <h3>5. Más información</h3>
+      <p>Para ejercer derechos de protección de datos, consulta la Política de Privacidad o escribe a yana140764@gmail.com.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="mapaSitio" role="dialog" aria-modal="true" aria-labelledby="mapa-sitio-title">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('mapaSitio')" aria-label="Cerrar">&times;</button>
+      <h2 id="mapa-sitio-title">Mapa del sitio</h2>
+      <p>Índice de Yana Yavorskaya Atelier (https://yanayavorskaya.com).</p>
+      <div class="sitemap-grid">
+        <div>
+          <h3>Contenido</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#inicio" onclick="closeModal('mapaSitio')">Inicio</a></li>
+            <li><a href="index.html#sobre" onclick="closeModal('mapaSitio')">Sobre Yana</a></li>
+            <li><a href="index.html#servicios" onclick="closeModal('mapaSitio')">Servicios</a></li>
+            <li><a href="index.html#proceso" onclick="closeModal('mapaSitio')">Proceso artesanal</a></li>
+            <li><a href="index.html#galeria" onclick="closeModal('mapaSitio')">Galería</a></li>
+            <li><a href="index.html#antes-despues" onclick="closeModal('mapaSitio')">Trabajos del atelier</a></li>
+            <li><a href="index.html#tarifas" onclick="closeModal('mapaSitio')">Tarifas</a></li>
+            <li><a href="productos.html" onclick="closeModal('mapaSitio')">Productos</a></li>
+            <li><a href="index.html#clases" onclick="closeModal('mapaSitio')">Clases de costura</a></li>
+            <li><a href="index.html#testimonios" onclick="closeModal('mapaSitio')">Testimonios</a></li>
+            <li><a href="index.html#contacto" onclick="closeModal('mapaSitio')">Contacto</a></li>
+            <li><a href="index.html#ubicacion" onclick="closeModal('mapaSitio')">Ubicación y horario</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('avisoLegal'); return false;">Aviso Legal</a></li>
+            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('privacidad'); return false;">Política de Privacidad</a></li>
+            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('cookies'); return false;">Política de Cookies</a></li>
+          </ul>
+          <h3>Contacto directo</h3>
+          <ul class="footer-links">
+            <li><a href="mailto:yana140764@gmail.com">yana140764@gmail.com</a></li>
+            <li><a href="tel:+34638753937">638 753 937</a></li>
+            <li><a href="https://wa.me/34638753937" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" onclick="closePhoto(event)">
+    <span class="lightbox-count" id="lb-count"></span>
+    <button type="button" class="lightbox-close" onclick="closePhoto()" aria-label="Cerrar">&times;</button>
+    <button type="button" class="lightbox-nav prev" onclick="event.stopPropagation(); stepPhoto(-1)" aria-label="Foto anterior">‹</button>
+    <button type="button" class="lightbox-nav next" onclick="event.stopPropagation(); stepPhoto(1)" aria-label="Foto siguiente">›</button>
+    <div class="lightbox-inner" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" alt="">
+      <div class="lightbox-info">
+        <div class="kicker" id="lb-kicker"></div>
+        <h3 id="lb-title"></h3>
+        <p id="lb-meta"></p>
+        <p id="lb-desc"></p>
+        <div class="price" id="lb-price"></div>
+      </div>
+    </div>
+    <a class="lightbox-wa" id="lb-wa" href="#" target="_blank" rel="noopener" onclick="event.stopPropagation()">WhatsApp</a>
+  </div>
+
+  <script src="asistente.js" defer></script>
+  <script>
+    const catalog = [
+      { src: 'images/blusa-camuflaje.jpeg', kicker: 'Blusa · Ref. 01', title: 'Blusa Camuflaje', meta: 'Talla M · Excelente estado', desc: 'Diseño casual, tejido fluido y estampado militar en rosa, azul y marrón.', price: '20 €', wa: 'Hola%2C%20me%20interesa%20la%20Blusa%20Camuflaje%20(20%20%E2%82%AC)' },
+      { src: 'images/falda-tejano-1.jpeg', kicker: 'Falda · Ref. 02', title: 'Falda Tejano Corazones', meta: 'Talla M · Nueva · Confección propia', desc: 'Corte en A, pieza artesanal en denim con estampado de corazones y bajo deshilachado.', price: '20 €', wa: 'Hola%2C%20me%20interesa%20la%20Falda%20Tejano%20Corazones%20(20%20%E2%82%AC)' },
+      { src: 'images/falda-tejano-2.jpeg', kicker: 'Falda · Ref. 02', title: 'Falda Tejano Corazones', meta: 'Talla M · Nueva · Confección propia', desc: 'Corte en A, pieza artesanal en denim con estampado de corazones y bajo deshilachado.', price: '20 €', wa: 'Hola%2C%20me%20interesa%20la%20Falda%20Tejano%20Corazones%20(20%20%E2%82%AC)' },
+      { src: 'images/falda-estampada-azul.jpeg', kicker: 'Falda · Ref. 03', title: 'Falda Estampada Azul', meta: 'Talla L · Nueva', desc: 'Estampado de puntos azules y violetas, ligera y con forro interior.', price: '20 €', wa: 'Hola%2C%20me%20interesa%20la%20Falda%20Estampada%20Azul%20(20%20%E2%82%AC)' },
+      { src: 'images/falda-espiga-1.jpeg', kicker: 'Falda · Ref. 04', title: 'Falda Espiga Lana', meta: 'Talla M · Muy bien cuidada', desc: 'Lana de alta calidad, detalle de volantes y cinta inferior en tono oscuro.', price: '20 €', wa: 'Hola%2C%20me%20interesa%20la%20Falda%20Espiga%20Lana%20(20%20%E2%82%AC)' },
+      { src: 'images/falda-espiga-2.jpeg', kicker: 'Falda · Ref. 04', title: 'Falda Espiga Lana', meta: 'Talla M · Muy bien cuidada', desc: 'Lana de alta calidad, detalle de volantes y cinta inferior en tono oscuro.', price: '20 €', wa: 'Hola%2C%20me%20interesa%20la%20Falda%20Espiga%20Lana%20(20%20%E2%82%AC)' },
+      { src: 'images/falda-floral-1.jpeg', kicker: 'Falda · Ref. 05', title: 'Falda Floral Crema', meta: 'Talla M · Excelente estado', desc: 'Talle alto con abotonadura frontal y vuelo, estampado floral en rosa y verde.', price: '20 €', wa: 'Hola%2C%20me%20interesa%20la%20Falda%20Floral%20Crema%20(20%20%E2%82%AC)' },
+      { src: 'images/falda-floral-2.jpeg', kicker: 'Falda · Ref. 05', title: 'Falda Floral Crema', meta: 'Talla M · Excelente estado', desc: 'Talle alto con abotonadura frontal y vuelo, estampado floral en rosa y verde.', price: '20 €', wa: 'Hola%2C%20me%20interesa%20la%20Falda%20Floral%20Crema%20(20%20%E2%82%AC)' },
+      { src: 'images/falda-patchwork-1.jpeg', kicker: 'Falda · Ref. 06', title: 'Falda Patchwork Boho', meta: 'Talla M · Excelente · Confección propia', desc: 'Paneles naranja, amarillo y blanco, encaje y costura vista.', price: '25 €', wa: 'Hola%2C%20me%20interesa%20la%20Falda%20Patchwork%20Boho%20(25%20%E2%82%AC)' },
+      { src: 'images/falda-patchwork-2.jpeg', kicker: 'Falda · Ref. 06', title: 'Falda Patchwork Boho', meta: 'Talla M · Excelente · Confección propia', desc: 'Paneles naranja, amarillo y blanco, encaje y costura vista.', price: '25 €', wa: 'Hola%2C%20me%20interesa%20la%20Falda%20Patchwork%20Boho%20(25%20%E2%82%AC)' },
+      { src: 'images/falda-encaje-menta.jpeg', kicker: 'Falda · Ref. 07', title: 'Falda Encaje Menta', meta: 'Talla M · Excelente · Confección propia', desc: 'Capas de encaje beige, bordados y cintas en tono menta.', price: '25 €', wa: 'Hola%2C%20me%20interesa%20la%20Falda%20Encaje%20Menta%20(25%20%E2%82%AC)' },
+      { src: 'images/zapatos-tacon-1.jpeg', kicker: 'Zapatos · Ref. 08', title: 'Zapatos Tacón Azules', meta: 'Talla 37 · Buen estado', desc: 'Ante azul eléctrico con tira al tobillo y tacón fino.', price: '25 €', wa: 'Hola%2C%20me%20interesan%20los%20Zapatos%20Tac%C3%B3n%20Azules%20(25%20%E2%82%AC)' },
+      { src: 'images/zapatos-tacon-2.jpeg', kicker: 'Zapatos · Ref. 08', title: 'Zapatos Tacón Azules', meta: 'Talla 37 · Buen estado', desc: 'Ante azul eléctrico con tira al tobillo y tacón fino.', price: '25 €', wa: 'Hola%2C%20me%20interesan%20los%20Zapatos%20Tac%C3%B3n%20Azules%20(25%20%E2%82%AC)' },
+      { src: 'images/botines-oxford-1.jpeg', kicker: 'Botines · Ref. 09', title: 'Botines Oxford Piel', meta: 'Talla 37 · Muy buen estado', desc: 'Piel camel, brogue, cordones y cremallera interior.', price: '30 €', wa: 'Hola%2C%20me%20interesan%20los%20Botines%20Oxford%20Piel%20(30%20%E2%82%AC)' },
+      { src: 'images/botines-oxford-2.jpeg', kicker: 'Botines · Ref. 09', title: 'Botines Oxford Piel', meta: 'Talla 37 · Muy buen estado', desc: 'Piel camel, brogue, cordones y cremallera interior.', price: '30 €', wa: 'Hola%2C%20me%20interesan%20los%20Botines%20Oxford%20Piel%20(30%20%E2%82%AC)' },
+      { src: 'images/zapatos-charol-1.jpeg', kicker: 'Zapatos · Ref. 10', title: 'Zapatos Charol Café', meta: 'Talla 37 · Nuevos · Zinda', desc: 'Charol de piel con detalle de flecos en la punta. Sin estrenar.', price: '45 €', wa: 'Hola%2C%20me%20interesan%20los%20Zapatos%20Charol%20Caf%C3%A9%20Zinda%20(45%20%E2%82%AC)' },
+      { src: 'images/zapatos-charol-2.jpeg', kicker: 'Zapatos · Ref. 10', title: 'Zapatos Charol Café', meta: 'Talla 37 · Nuevos · Zinda', desc: 'Charol de piel con detalle de flecos en la punta. Sin estrenar.', price: '45 €', wa: 'Hola%2C%20me%20interesan%20los%20Zapatos%20Charol%20Caf%C3%A9%20Zinda%20(45%20%E2%82%AC)' }
+    ];
+    let photoIndex = 0;
+
+    function showPhoto(index) {
+      photoIndex = (index + catalog.length) % catalog.length;
+      const item = catalog[photoIndex];
+      document.getElementById('lightbox-img').src = item.src;
+      document.getElementById('lightbox-img').alt = item.title;
+      document.getElementById('lb-kicker').textContent = item.kicker;
+      document.getElementById('lb-title').textContent = item.title;
+      document.getElementById('lb-meta').textContent = item.meta;
+      document.getElementById('lb-desc').textContent = item.desc;
+      document.getElementById('lb-price').innerHTML = item.price + '<small>negociable</small>';
+      document.getElementById('lb-wa').href = 'https://wa.me/34638753937?text=' + item.wa;
+      document.getElementById('lb-count').textContent = (photoIndex + 1) + ' / ' + catalog.length;
+    }
+    function openPhoto(index) {
+      showPhoto(index);
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function stepPhoto(dir) { showPhoto(photoIndex + dir); }
+    function closePhoto(event) {
+      if (!event || event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+    document.addEventListener('keydown', (e) => {
+      const open = document.getElementById('lightbox').classList.contains('active');
+      if (open && e.key === 'ArrowRight') stepPhoto(1);
+      if (open && e.key === 'ArrowLeft') stepPhoto(-1);
+      if (e.key === 'Escape') {
+        closePhoto();
+        document.querySelectorAll('.modal.active').forEach(modal => {
+          modal.classList.remove('active');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => document.getElementById('navMenu').classList.remove('active'));
+    });
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

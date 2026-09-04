@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venta particular · Ropa y calzado · Madrid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f4ef; --paper:#fbfaf7; --ink:#1c1916; --muted:#6a635a;
+    --line:#ddd6cb; --gold:#b08968; --gold-deep:#8a6a4e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{
+    background:var(--bg); color:var(--ink);
+    font-family:'Montserrat',system-ui,sans-serif; font-weight:400;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  img{max-width:100%; height:auto; display:block; image-rendering:auto;}
+
+  .toolbar{
+    position:sticky; top:0; z-index:20;
+    display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+    padding:12px 16px;
+    background:rgba(247,244,239,.94); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .toolbar a, .toolbar button{
+    appearance:none; border:1px solid var(--gold-deep);
+    background:var(--ink); color:#fbfaf7;
+    font:500 11px/1 'Montserrat',sans-serif;
+    letter-spacing:.14em; text-transform:uppercase;
+    padding:10px 16px; text-decoration:none; cursor:pointer;
+  }
+  .toolbar a.ghost, .toolbar button.ghost{
+    background:transparent; color:var(--ink);
+  }
+
+  .sheet{
+    width:210mm; min-height:297mm;
+    margin:18px auto; padding:16mm 15mm 20mm;
+    background:var(--paper);
+    box-shadow:0 12px 40px rgba(28,25,22,.12);
+    position:relative; page-break-after:always; break-after:page;
+  }
+  .sheet:last-child{page-break-after:auto; break-after:auto;}
+
+  .header{
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:14px;
+    font-size:8pt; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-deep);
+  }
+  .header .season{letter-spacing:.08em; font-style:italic; text-transform:none; color:var(--gold);}
+
+  .cover{display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:255mm;}
+  .cover .mark{width:72px; height:auto; margin-bottom:18px; opacity:.92;}
+  .cover .line{width:56px; height:1px; background:var(--gold); margin:22px auto;}
+  .cover h1{
+    font-family:'Cormorant Garamond',Georgia,serif; font-weight:600;
+    font-size:34pt; letter-spacing:.18em; text-transform:uppercase; line-height:1.15;
+  }
+  .cover h1 span{display:block; margin-top:10px; font-size:13pt; letter-spacing:.42em; color:var(--gold); font-weight:400;}
+  .cover .subtitle{margin-top:22px; font-size:10pt; letter-spacing:.38em; text-transform:uppercase; color:var(--gold-deep);}
+  .cover .notes{
+    margin-top:42px; max-width:420px; font-size:9.5pt; line-height:1.85; color:var(--muted);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:18px 8px;
+  }
+  .cover .edition{position:absolute; bottom:28mm; left:0; right:0; text-align:center;
+    font-size:8pt; letter-spacing:.32em; text-transform:uppercase; color:#b8b0a4;}
+
+  .kicker{font-size:8pt; letter-spacing:.28em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:6px;}
+  .product-title{
+    font-family:'Cormorant Garamond',Georgia,serif; font-weight:700;
+    font-size:26pt; letter-spacing:.04em; line-height:1.1; margin-bottom:8px;
+  }
+  .meta{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;}
+  .meta span{
+    font-size:7.5pt; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-deep);
+    border:1px solid var(--line); padding:4px 8px;
+  }
+
+  .gallery{display:grid; gap:10px; margin:4px 0 16px; background:#efebe3; padding:10px; min-height:168mm;}
+  .gallery.one{grid-template-columns:1fr;}
+  .gallery.two{grid-template-columns:1fr 1fr;}
+  .frame{
+    background:#fff; min-height:164mm;
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .frame img{
+    width:100%; height:164mm; object-fit:contain; object-position:center;
+  }
+
+  .desc{font-size:11pt; line-height:1.55; color:#4d473f; font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; max-width:170mm;}
+  .price-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-top:16px; padding-top:12px; border-top:1px dashed var(--line);
+  }
+  .amount{font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:28pt;}
+  .amount small{font-size:10pt; color:var(--gold); font-weight:400; letter-spacing:.12em; text-transform:uppercase; margin-left:8px; font-family:'Montserrat',sans-serif;}
+  .tag{font-size:8pt; letter-spacing:.22em; text-transform:uppercase; color:var(--gold);}
+
+  .lots{margin-top:8px; border:1px solid var(--line); padding:22px 20px; background:#f3efe7;}
+  .lots h2{font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:22pt; letter-spacing:.16em; text-transform:uppercase; text-align:center;}
+  .lots h2 small{display:block; font-size:8pt; letter-spacing:.32em; color:var(--gold); margin-top:6px; font-weight:400; font-family:'Montserrat',sans-serif;}
+  .lots-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:20px;}
+  .lot{text-align:center; background:#fff; border:1px solid var(--line); padding:18px 10px;}
+  .lot .name{font-size:8pt; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-deep);}
+  .lot .val{font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:26pt; margin-top:8px;}
+  .lot .val.sm{font-size:18pt;}
+  .lot .note{font-size:8pt; color:var(--muted); margin-top:6px; font-style:italic;}
+
+  .footer{
+    position:absolute; left:15mm; right:15mm; bottom:10mm;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:7pt; letter-spacing:.18em; text-transform:uppercase; color:#b8b0a4;
+    border-top:1px solid var(--line); padding-top:7px;
+  }
+  .footer .num{color:var(--gold); font-weight:500;}
+
+  @media screen and (max-width:900px){
+    .sheet{width:auto; min-height:0; margin:12px; padding:22px 16px 48px;}
+    .cover{min-height:70vh;}
+    .cover h1{font-size:28px; letter-spacing:.12em;}
+    .gallery, .gallery.two{grid-template-columns:1fr; min-height:0;}
+    .frame{min-height:0;}
+    .frame img{height:auto; max-height:78vh;}
+    .lots-grid{grid-template-columns:1fr;}
+  }
+
+  @media print{
+    .toolbar{display:none !important;}
+    html,body{background:#fff;}
+    .sheet{
+      width:210mm; min-height:297mm; margin:0; padding:16mm 15mm 20mm;
+      box-shadow:none; background:var(--paper);
+    }
+  }
+  @page{size:A4 portrait; margin:0;}
+</style>
+</head>
+<body>
+
+<nav class="toolbar">
+  <a href="catalogo-wallapop.pdf" download>Descargar PDF</a>
+  <button type="button" class="ghost" onclick="window.print()">Imprimir desde el navegador</button>
+</nav>
+
+<section class="sheet">
+  <div class="cover">
+    <div class="line"></div>
+    <h1>Ropa y calzado<span>Venta particular</span></h1>
+    <div class="line"></div>
+    <div class="subtitle">Madrid · Precios negociables</div>
+    <div class="notes">
+      Soy particular, no empresa<br>
+      Envío por Wallapop o entrega en Madrid<br>
+      Dudas y ofertas por el chat
+    </div>
+  </div>
+  <div class="edition">Septiembre 2026</div>
+  <div class="footer"><span>Particular · Madrid</span><span class="num">01</span><span>Chat de Wallapop</span></div>
+</section>
+
+<section class="sheet">
+  <div class="header"><span>Venta particular</span><span class="season">Prendas · Ref. 01</span></div>
+  <div class="kicker">Blusa</div>
+  <h2 class="product-title">Blusa Camuflaje</h2>
+  <div class="meta"><span>Talla M</span><span>Excelente estado</span></div>
+  <div class="gallery one"><div class="frame"><img src="blusa-camuflaje.jpeg" alt="Blusa camuflaje en tonos rosa, azul y marrón"></div></div>
+  <p class="desc">Diseño casual, tejido fluido y estampado militar en tonos rosa, azul y marrón.</p>
+  <div class="price-row"><span class="amount">20 €<small>negociable</small></span><span class="tag">Ref. 01</span></div>
+  <div class="footer"><span>Prendas de vestir</span><span class="num">02</span><span>Envío · Entrega en mano</span></div>
+</section>
+
+<section class="sheet">
+  <div class="header"><span>Venta particular</span><span class="season">Prendas · Ref. 02</span></div>
+  <div class="kicker">Falda</div>
+  <h2 class="product-title">Falda Tejano Corazones</h2>
+  <div class="meta"><span>Talla M</span><span>Nueva · Hecha a mano</span></div>
+  <div class="gallery two">
+    <div class="frame"><img src="falda-tejano-1.jpeg" alt="Falda tejano corazones, vista frontal"></div>
+    <div class="frame"><img src="falda-tejano-2.jpeg" alt="Falda tejano corazones, detalle"></div>
+  </div>
+  <p class="desc">Corte en A, pieza artesanal en denim con estampado de corazones y bajo deshilachado.</p>
+  <div class="price-row"><span class="amount">20 €<small>negociable</small></span><span class="tag">Ref. 02</span></div>
+  <div class="footer"><span>Prendas de vestir</span><span class="num">03</span><span>Envío · Entrega en mano</span></div>
+</section>
+
+<section class="sheet">
+  <div class="header"><span>Venta particular</span><span class="season">Prendas · Ref. 03</span></div>
+  <div class="kicker">Falda</div>
+  <h2 class="product-title">Falda Estampada Azul</h2>
+  <div class="meta"><span>Talla L</span><span>Nueva</span></div>
+  <div class="gallery one"><div class="frame"><img src="falda-estampada-azul.jpeg" alt="Falda estampada azul y violeta"></div></div>
+  <p class="desc">Estampado de puntos azules y violetas, ligera y con forro interior.</p>
+  <div class="price-row"><span class="amount">20 €<small>negociable</small></span><span class="tag">Ref. 03</span></div>
+  <div class="footer"><span>Prendas de vestir</span><span class="num">04</span><span>Medidas por el chat</span></div>
+</section>
+
+<section class="sheet">
+  <div class="header"><span>Venta particular</span><span class="season">Prendas · Ref. 04</span></div>
+  <div class="kicker">Falda</div>
+  <h2 class="product-title">Falda Espiga Lana</h2>
+  <div class="meta"><span>Talla M</span><span>Muy bien cuidada</span></div>
+  <div class="gallery two">
+    <div class="frame"><img src="falda-espiga-1.jpeg" alt="Falda de lana espiga, vista posterior"></div>
+    <div class="frame"><img src="falda-espiga-2.jpeg" alt="Falda de lana espiga, detalle de cinta y encaje"></div>
+  </div>
+  <p class="desc">Lana de alta calidad, detalle de volantes y cinta inferior en tono oscuro.</p>
+  <div class="price-row"><span class="amount">20 €<small>negociable</small></span><span class="tag">Ref. 04</span></div>
+  <div class="footer"><span>Prendas de vestir</span><span class="num">05</span><span>Medidas por el chat</span></div>
+</section>
+
+<section class="sheet">
+  <div class="header"><span>Venta particular</span><span class="season">Prendas · Ref. 05</span></div>
+  <div class="kicker">Falda</div>
+  <h2 class="product-title">Falda Floral Crema</h2>
+  <div class="meta"><span>Talla M</span><span>Excelente estado</span></div>
+  <div class="gallery two">
+    <div class="frame"><img src="falda-floral-1.jpeg" alt="Falda floral crema, vista general"></div>
+    <div class="frame"><img src="falda-floral-2.jpeg" alt="Falda floral crema, talle y botones"></div>
+  </div>
+  <p class="desc">Talle alto con abotonadura frontal y vuelo romántico, estampado floral en rosa y verde.</p>
+  <div class="price-row"><span class="amount">20 €<small>negociable</small></span><span class="tag">Ref. 05</span></div>
+  <div class="footer"><span>Prendas de vestir</span><span class="num">06</span><span>Medidas por el chat</span></div>
+</section>
+
+<section class="sheet">
+  <div class="header"><span>Venta particular</span><span class="season">Prendas · Ref. 06</span></div>
+  <div class="kicker">Falda</div>
+  <h2 class="product-title">Falda Patchwork Boho</h2>
+  <div class="meta"><span>Talla M</span><span>Excelente · Hecha a mano</span></div>
+  <div class="gallery two">
+    <div class="frame"><img src="falda-patchwork-1.jpeg" alt="Falda patchwork naranja y blanco"></div>
+    <div class="frame"><img src="falda-patchwork-2.jpeg" alt="Falda patchwork, detalle de encaje y bordado"></div>
+  </div>
+  <p class="desc">Combinación de paneles cálidos y encajes en naranja, amarillo y blanco, con costura vista.</p>
+  <div class="price-row"><span class="amount">25 €<small>negociable</small></span><span class="tag">Ref. 06</span></div>
+  <div class="footer"><span>Prendas de vestir</span><span class="num">07</span><span>Hecha a mano</span></div>
+</section>
+
+<section class="sheet">
+  <div class="header"><span>Venta particular</span><span class="season">Prendas · Ref. 07</span></div>
+  <div class="kicker">Falda</div>
+  <h2 class="product-title">Falda Encaje Menta</h2>
+  <div class="meta"><span>Talla M</span><span>Excelente · Hecha a mano</span></div>
+  <div class="gallery one"><div class="frame"><img src="falda-encaje-menta.jpeg" alt="Falda de encaje beige con cintas menta"></div></div>
+  <p class="desc">Diseño romántico en capas, bordados dorados y cintas en tono menta sobre encaje beige.</p>
+  <div class="price-row"><span class="amount">25 €<small>negociable</small></span><span class="tag">Ref. 07</span></div>
+  <div class="footer"><span>Prendas de vestir</span><span class="num">08</span><span>Hecha a mano</span></div>
+</section>
+
+<section class="sheet">
+  <div class="header"><span>Venta particular</span><span class="season">Calzado · Ref. 08</span></div>
+  <div class="kicker">Zapatos</div>
+  <h2 class="product-title">Zapatos Tacón Azules</h2>
+  <div class="meta"><span>Talla 37</span><span>Buen estado</span></div>
+  <div class="gallery two">
+    <div class="frame"><img src="zapatos-tacon-1.jpeg" alt="Zapatos de tacón azul eléctrico, vista interior"></div>
+    <div class="frame"><img src="zapatos-tacon-2.jpeg" alt="Zapatos de tacón azul eléctrico, perfil"></div>
+  </div>
+  <p class="desc">Ante azul eléctrico con tira de ajuste al tobillo y tacón fino.</p>
+  <div class="price-row"><span class="amount">25 €<small>negociable</small></span><span class="tag">Ref. 08</span></div>
+  <div class="footer"><span>Calzado</span><span class="num">09</span><span>Piel, charol y ante</span></div>
+</section>
+
+<section class="sheet">
+  <div class="header"><span>Venta particular</span><span class="season">Calzado · Ref. 09</span></div>
+  <div class="kicker">Botines</div>
+  <h2 class="product-title">Botines Oxford Piel</h2>
+  <div class="meta"><span>Talla 37</span><span>Muy buen estado</span></div>
+  <div class="gallery two">
+    <div class="frame"><img src="botines-oxford-1.jpeg" alt="Botines oxford de piel, tres cuartos"></div>
+    <div class="frame"><img src="botines-oxford-2.jpeg" alt="Botines oxford de piel, perfil"></div>
+  </div>
+  <p class="desc">Piel vacuna en tono camel, brogue, cordones y cremallera interior.</p>
+  <div class="price-row"><span class="amount">30 €<small>negociable</small></span><span class="tag">Ref. 09</span></div>
+  <div class="footer"><span>Calzado</span><span class="num">10</span><span>Piel, charol y ante</span></div>
+</section>
+
+<section class="sheet">
+  <div class="header"><span>Venta particular</span><span class="season">Calzado · Ref. 10</span></div>
+  <div class="kicker">Zapatos</div>
+  <h2 class="product-title">Zapatos Charol Café</h2>
+  <div class="meta"><span>Talla 37</span><span>Nuevo · Sin estrenar</span><span>Zinda</span></div>
+  <div class="gallery two">
+    <div class="frame"><img src="zapatos-charol-1.jpeg" alt="Zapatos charol café Zinda, frente"></div>
+    <div class="frame"><img src="zapatos-charol-2.jpeg" alt="Zapatos charol café Zinda, perfil"></div>
+  </div>
+  <p class="desc">Marca Zinda, charol de piel con detalle de flecos en la punta.</p>
+  <div class="price-row"><span class="amount">45 €<small>negociable</small></span><span class="tag">Ref. 10</span></div>
+  <div class="footer"><span>Calzado</span><span class="num">11</span><span>Piel, charol y ante</span></div>
+</section>
+
+<section class="sheet">
+  <div class="header"><span>Venta particular</span><span class="season">Ofertas por lote</span></div>
+  <div class="lots">
+    <h2>Ofertas por lote<small>Si te llevas varios</small></h2>
+    <div class="lots-grid">
+      <div class="lot">
+        <div class="name">Pack 2 faldas</div>
+        <div class="val">35 €</div>
+        <div class="note">Combinación libre</div>
+      </div>
+      <div class="lot">
+        <div class="name">Pack calzado</div>
+        <div class="val">85 €<small style="font-size:11pt;color:var(--gold);font-weight:400;"> / 3 pares</small></div>
+        <div class="note">Los tres modelos</div>
+      </div>
+      <div class="lot">
+        <div class="name">Lote completo</div>
+        <div class="val sm">Consultar</div>
+        <div class="note">Precio de liquidación</div>
+      </div>
+    </div>
+  </div>
+  <p class="desc" style="margin-top:28px;max-width:none;">
+    Precios abiertos a oferta. Si te llevas más de una cosa, se puede hablar.
+    Envío por Wallapop o quedamos en Madrid. Pregunta por el chat.
+  </p>
+  <div class="footer"><span>Particular · Madrid</span><span class="num">12</span><span>Septiembre 2026</span></div>
+</section>
+
+</body>
+</html>

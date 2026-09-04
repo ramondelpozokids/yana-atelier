@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yana Yavorskaya Atelier - Donde cada puntada cuenta una historia. Alta costura en Madrid.">
+  <meta name="keywords" content="alta costura Madrid, atelier, Yana Yavorskaya, costura a medida">
+  <meta name="author" content="Yana Yavorskaya Atelier">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#c8b8a6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+  
+  <link rel="canonical" href="https://yanayavorskaya.com">
+  
+  <!-- Preconnect & DNS Prefetch -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="logo-yy.png" as="image">
+  <link rel="preload" href="header-camisas.jpg" as="image">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo-yy.png">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yanayavorskaya.com">
+  <meta property="og:title" content="Yana Yavorskaya Atelier | Donde cada puntada cuenta una historia">
+  <meta property="og:description" content="Alta costura artesanal en Madrid. Creación única bajo cita privada.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=1200">
+  
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "Yana Yavorskaya Atelier",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle González Soto, 40, planta 1B",
+      "addressLocality": "Madrid",
+      "postalCode": "28038",
+      "addressCountry": "ES"
+    },
+    "telephone": "+34638753937",
+    "email": "yana140764@gmail.com",
+    "priceRange": "€€€€"
+  }
+  </script>
+
+  <title>Yana Yavorskaya Atelier | Donde cada puntada cuenta una historia</title>
+
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-bg-alt: #f9f7f4;
+      --color-bg-dark: #0a0a0a;
+      --color-text: #1a1a1a;
+      --color-text-light: #6b6b6b;
+      --color-text-inverse: #ffffff;
+      --color-accent: #c8b8a6;
+      --color-accent-dark: #b5a391;
+      --color-overlay: rgba(10, 10, 10, 0.55);
+      --color-border: rgba(0,0,0,0.08);
+      
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-6: 1.5rem; --space-8: 2rem;
+      --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --space-32: 8rem;
+      
+      --container-max: 1280px;
+      --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    
+    body {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    
+    h1 { font-size: clamp(3rem, 8vw, 5rem); margin-bottom: var(--space-6); }
+    h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: var(--space-8); }
+    h3 { font-size: 1.5rem; margin-bottom: var(--space-3); }
+    
+    p { color: var(--color-text-light); margin-bottom: var(--space-4); }
+    
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--space-8);
+    }
+    
+    .text-center { text-align: center; }
+    
+    a { color: inherit; text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--color-accent); }
+
+    /* ===== ACCESIBILIDAD: Focus visible ===== */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* Logo con imagen real */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    
+    .logo-ysl {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+    }
+    
+    .logo-text {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--color-text);
+      letter-spacing: 3px;
+      line-height: 1;
+    }
+    
+    .logo-tagline {
+      font-size: 0.65rem;
+      color: var(--color-text-light);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 4px;
+      font-weight: 400;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: var(--space-4) 0;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      transition: all var(--transition);
+    }
+    
+    .nav.scrolled {
+      padding: var(--space-2) 0;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-menu {
+      display: flex;
+      gap: var(--space-8);
+      list-style: none;
+      align-items: center;
+    }
+    
+    .nav-menu a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--color-text);
+      position: relative;
+    }
+    
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transition: width var(--transition);
+    }
+    
+    .nav-menu a:hover::after { width: 100%; }
+    .nav-menu a[aria-current="page"] { color: var(--color-accent); font-weight: 600; }
+    .nav-menu a[aria-current="page"]::after { width: 100%; }
+    
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: var(--space-2);
+    }
+    
+    .nav-toggle span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--color-text);
+      margin: 5px 0;
+      transition: var(--transition);
+    }
+
+    /* Hero Slider */
+    .hero-slider {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--color-text-inverse);
+    }
+    
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+    }
+    
+    .slide.active { opacity: 1; }
+    
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: var(--space-8);
+      animation: slideUp 1s ease-out;
+    }
+    
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .slide h1 {
+      color: #ffffff;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+      font-weight: 400;
+      letter-spacing: 3px;
+      margin-bottom: var(--space-4);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+    }
+    
+    .slide .tagline {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: #ffffff;
+      font-style: italic;
+      font-family: var(--font-serif);
+      margin-bottom: var(--space-8);
+      text-shadow: 0 2px 15px rgba(0,0,0,0.4);
+      font-weight: 300;
+    }
+    
+    .slide p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: var(--space-8);
+      font-weight: 300;
+    }
+    
+    .slider-controls {
+      position: absolute;
+      bottom: var(--space-8);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: var(--space-2);
+      z-index: 10;
+    }
+    
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    
+    .slider-dot.active {
+      background: var(--color-accent);
+      width: 40px;
+      border-radius: 6px;
+    }
+    
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      transition: all var(--transition);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .slider-arrow:hover {
+      background: rgba(255,255,255,0.4);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .slider-arrow.prev { left: var(--space-8); }
+    .slider-arrow.next { right: var(--space-8); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 1.1rem 3rem;
+      background: var(--color-accent);
+      color: var(--color-text-inverse);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all var(--transition);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    .btn:hover {
+      background: var(--color-accent-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+    
+    .btn-outline:hover {
+      background: #ffffff;
+      color: var(--color-bg-dark);
+    }
+
+    /* Sections */
+    section { padding: var(--space-32) 0; }
+    section.lux { background: var(--color-bg-alt); }
+    
+    .subtitle {
+      max-width: 70ch;
+      margin: var(--space-8) auto var(--space-12);
+      font-size: 1.2rem;
+      line-height: 1.9;
+      color: var(--color-text-light);
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-12);
+      margin-top: var(--space-12);
+    }
+
+    /* Cards */
+    .card {
+      background: var(--color-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      transition: all var(--transition);
+    }
+    
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .card-image {
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .card-image img,
+    .card-image picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 600ms ease;
+    }
+    
+    .card:hover .card-image img { transform: scale(1.05); }
+    
+    .card-content { padding: var(--space-6); text-align: center; }
+    .card h3 { color: var(--color-text); margin-bottom: var(--space-3); }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-12);
+    }
+    
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+      aspect-ratio: 1;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    
+    .gallery-overlay span {
+      color: white;
+      font-size: 2rem;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 10000;
+      overflow-y: auto;
+    }
+    
+    .lightbox.active { display: flex; align-items: center; justify-content: center; }
+    
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90vh;
+    }
+    
+    .lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 2rem;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.3);
+      transform: rotate(90deg);
+    }
+    
+    .lightbox-caption {
+      position: absolute;
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      font-size: 1.1rem;
+      padding: var(--space-4);
+    }
+
+    /* Form */
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--color-bg);
+      padding: var(--space-12);
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .form-group {
+      margin-bottom: var(--space-6);
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: var(--space-2);
+      font-weight: 500;
+      color: var(--color-text);
+      font-size: 0.9rem;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      transition: all var(--transition);
+      background: var(--color-bg);
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(200,184,166,0.1);
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    
+    .form-message {
+      padding: var(--space-4);
+      border-radius: 6px;
+      margin-bottom: var(--space-4);
+      display: none;
+    }
+    
+    .form-message.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      display: block;
+    }
+    
+    .form-message.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+      display: block;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-8);
+      margin-top: var(--space-12);
+    }
+    
+    .pricing-card {
+      background: var(--color-bg);
+      border: 2px solid var(--color-border);
+      border-radius: 12px;
+      padding: var(--space-8);
+      text-align: center;
+      transition: all var(--transition);
+      position: relative;
+    }
+    
+    .pricing-card.featured {
+      border-color: var(--color-accent);
+      transform: scale(1.05);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .pricing-card.featured::before {
+      content: 'Más popular';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-accent);
+      color: white;
+      padding: 0.25rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 20px;
+    }
+    
+    .pricing-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-4);
+    }
+    
+    .price {
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin: var(--space-6) 0;
+      font-family: var(--font-serif);
+    }
+    
+    .price span {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      font-weight: 400;
+    }
+    
+    .pricing-features {
+      list-style: none;
+      margin: var(--space-6) 0;
+      text-align: left;
+    }
+    
+    .pricing-features li {
+      padding: var(--space-2) 0;
+      color: var(--color-text-light);
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--color-accent);
+      margin-right: var(--space-2);
+      font-weight: bold;
+    }
+
+    /* Info Grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-12);
+      margin-top: var(--space-12);
+    }
+    
+    .info-card {
+      background: var(--color-bg);
+      padding: var(--space-8);
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+    }
+    
+    .info-card h3 {
+      margin-bottom: var(--space-6);
+      color: var(--color-text);
+    }
+    
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .hours-table td {
+      padding: var(--space-2) 0;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-light);
+    }
+    
+    .hours-table td:first-child {
+      font-weight: 500;
+      color: var(--color-text);
+    }
+    
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 8px;
+      margin-top: var(--space-8);
+      z-index: 1;
+    }
+
+    /* CTA */
+    .cta {
+      background: 
+        linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(26,26,26,0.95) 100%),
+        url('https://images.unsplash.com/photo-1558171813441-3e581893bf03?auto=format&fit=crop&w=1920&q=80') 
+        center/cover fixed;
+      color: var(--color-text-inverse);
+      text-align: center;
+      padding: var(--space-32) 0;
+    }
+    
+    .cta h2 {
+      color: #ffffff;
+      margin-bottom: var(--space-6);
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+    
+    .cta p { 
+      color: #ffffff; 
+      opacity: 0.95; 
+      font-size: 1.15rem;
+      margin-bottom: var(--space-8);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+      padding: var(--space-24) 0 var(--space-8);
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-12);
+      margin-bottom: var(--space-12);
+    }
+    
+    .footer-section h4 {
+      color: var(--color-accent);
+      margin-bottom: var(--space-6);
+      font-size: 1.1rem;
+    }
+    
+    .footer-section p,
+    .footer-section a {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+    
+    .footer-section a:hover {
+      color: var(--color-accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: var(--space-2);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: var(--space-8);
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.875rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    .social-links a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+      color: white;
+    }
+    
+    .social-links a:hover {
+      background: var(--color-accent);
+      transform: translateY(-4px);
+    }
+    
+    .social-links svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.8);
+      z-index: 10000;
+      overflow-y: auto;
+      padding: var(--space-8);
+    }
+    
+    .modal.active { display: flex; align-items: center; justify-content: center; }
+    
+    .modal-content {
+      background: var(--color-bg);
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: var(--space-12);
+      border-radius: 8px;
+      position: relative;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--color-text);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all var(--transition);
+    }
+    
+    .modal-close:hover {
+      background: var(--color-bg-alt);
+      color: var(--color-accent);
+    }
+    
+    .modal h2 {
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 2px solid var(--color-accent);
+    }
+    
+    .modal h3 {
+      margin: var(--space-6) 0 var(--space-3);
+      color: var(--color-text);
+    }
+    
+    .modal p, .modal ul {
+      margin-bottom: var(--space-4);
+      color: var(--color-text-light);
+    }
+    
+    .modal ul {
+      margin-left: var(--space-6);
+    }
+    
+    .modal li {
+      margin-bottom: var(--space-2);
+    }
+
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6) var(--space-8);
+    }
+    @media (max-width: 640px) {
+      .sitemap-grid { grid-template-columns: 1fr; }
+    }
+    .sitemap-grid h3 { margin-top: 0; }
+    .sitemap-grid a { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Cookie Banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--color-bg-dark);
+      color: var(--color-text-inverse);
+      padding: var(--space-6) var(--space-8);
+      z-index: 9999;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+      transform: translateY(100%);
+      transition: transform 0.5s ease;
+    }
+    
+    .cookie-banner.show { transform: translateY(0); }
+    
+    .cookie-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    
+    .cookie-text {
+      flex: 1;
+      min-width: 300px;
+      font-size: 0.875rem;
+      color: var(--color-text-inverse);
+    }
+    
+    .cookie-text a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    
+    .cookie-buttons {
+      display: flex;
+      gap: var(--space-4);
+      flex-shrink: 0;
+    }
+    
+    .cookie-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    
+    .cookie-btn.accept {
+      background: var(--color-accent);
+      color: white;
+    }
+    
+    .cookie-btn.reject {
+      background: transparent;
+      color: var(--color-text-inverse);
+      border: 1px solid var(--color-text-inverse);
+    }
+
+    /* WhatsApp */
+    .whatsapp {
+      position: fixed;
+      bottom: var(--space-6);
+      right: var(--space-6);
+      background: #25D366;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      z-index: 100;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .whatsapp:hover {
+      background: #128C7E;
+      transform: scale(1.05);
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: var(--space-4);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+      
+      .nav-menu.active { display: flex; }
+      .nav-toggle { display: block; }
+      
+      .slider-arrow { display: none; }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .pricing-card.featured { transform: none; }
+      
+      .cookie-content { flex-direction: column; text-align: center; }
+      .cookie-buttons { width: 100%; justify-content: center; }
+      
+      .modal-content { padding: var(--space-6); }
+      
+      .form-container {
+        padding: var(--space-6);
+      }
+      
+      .social-links a {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .logo-ysl {
+        width: 55px;
+        height: 55px;
+      }
+    }
+
+    /* ===== Sobre Yana ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+    }
+    .about-photo {
+      aspect-ratio: 4/5;
+      border-radius: 4px;
+      background: var(--color-bg-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    }
+    .about-photo picture,
+    .about-photo img { width: 100%; height: 100%; display: block; }
+    .about-photo img { object-fit: cover; object-position: center 18%; }
+    .about-text h2 { margin-bottom: var(--space-4); }
+    .about-text p { max-width: 46ch; }
+
+    /* ===== Testimonios ===== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-8);
+      margin-top: var(--space-12);
+    }
+    @media (max-width: 768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+    .testimonial-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: var(--space-8);
+      text-align: center;
+    }
+    .testimonial-stars {
+      color: var(--color-accent-dark);
+      letter-spacing: 2px;
+      margin-bottom: var(--space-4);
+    }
+    .testimonial-stars .star-off { color: #d8d2cb; }
+    .testimonial-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+    }
+    .testimonial-author {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ===== Diario del atelier ===== */
+    .atelier-cases {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-20);
+      margin-top: var(--space-12);
+    }
+    .atelier-case {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+    .atelier-case.reverse { grid-template-columns: 0.95fr 1.05fr; }
+    .atelier-case.reverse .case-photo { order: 2; }
+    .case-photo {
+      margin: 0;
+      background: #f4f2ef;
+      border-radius: 4px;
+      overflow: hidden;
+      min-height: 0;
+    }
+    .case-photo picture, .case-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .case-photo img {
+      object-fit: contain;
+      object-position: center;
+      max-height: 640px;
+      background: #f4f2ef;
+    }
+    .case-photo.cover img { object-fit: cover; aspect-ratio: 4/5; max-height: none; }
+    .case-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent-dark);
+      margin-bottom: var(--space-3);
+    }
+    .case-body h3 { margin-bottom: var(--space-6); }
+    .case-body dl { margin: 0 0 var(--space-8); }
+    .case-body dt {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      margin-top: var(--space-4);
+    }
+    .case-body dt:first-child { margin-top: 0; }
+    .case-body dd {
+      color: var(--color-text-light);
+      margin: 4px 0 0;
+    }
+    @media (max-width: 768px) {
+      .atelier-case,
+      .atelier-case.reverse { grid-template-columns: 1fr; }
+      .atelier-case.reverse .case-photo { order: 0; }
+    }
+  </style>
+  <link rel="stylesheet" href="asistente.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Navegación principal">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <img class="logo-ysl" src="logo-yy.png" alt="Logo Yana Yavorskaya - YY entrelazadas doradas" width="75" height="75">
+        <div>
+          <div class="logo-text">YANA YAVORSKAYA</div>
+          <div class="logo-tagline">Alta Costura Madrid</div>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="Menú" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#inicio" aria-current="page">Inicio</a></li>
+        <li><a href="#sobre">Sobre mí</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#tarifas">Tarifas</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="#clases">Clases</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Slider -->
+  <section class="hero-slider" id="inicio" role="banner">
+    <div class="slide active" style="background-image: url('header-camisas.jpg');">
+      <div class="slide-content">
+        <h1>Yana Yavorskaya</h1>
+        <p class="tagline">Donde cada puntada cuenta una historia</p>
+        <p>Atelier de alta costura en Madrid. Creación única bajo cita privada.</p>
+        <a class="btn" href="#contacto">Reservar cita</a>
+      </div>
+    </div>
+    
+    <div class="slide" style="background-image: url('header-costura.jpg');">
+      <div class="slide-content">
+        <h1>Alta Costura</h1>
+        <p class="tagline">Exclusividad y artesanía en cada detalle</p>
+        <p>Diseño y confección a medida con tejidos seleccionados.</p>
+        <a class="btn" href="#servicios">Descubrir servicios</a>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: url('header-atelier.jpg');">
+      <div class="slide-content">
+        <h1>Cita privada</h1>
+        <p class="tagline">Un armario, una costurera, sin prisa</p>
+        <p>Trae la prenda. Se valora en el atelier qué se puede hacer con ella.</p>
+        <a class="btn" href="#contacto">Pedir cita</a>
+      </div>
+    </div>
+    
+    <div class="slide" style="background-image: url('antes-despues-1.jpg'); background-position: center 18%;">
+      <div class="slide-content">
+        <h1>Transformación</h1>
+        <p class="tagline">Da nueva vida a tus prendas favoritas</p>
+        <p>Rediseño artesanal con respeto por la historia de cada pieza.</p>
+        <a class="btn" href="#antes-despues">Ver trabajos</a>
+      </div>
+    </div>
+    
+    <button class="slider-arrow prev" onclick="changeSlide(-1)" aria-label="Slide anterior">‹</button>
+    <button class="slider-arrow next" onclick="changeSlide(1)" aria-label="Slide siguiente">›</button>
+    
+    <div class="slider-controls">
+      <button class="slider-dot active" onclick="goToSlide(0)" aria-label="Ir al slide 1"></button>
+      <button class="slider-dot" onclick="goToSlide(1)" aria-label="Ir al slide 2"></button>
+      <button class="slider-dot" onclick="goToSlide(2)" aria-label="Ir al slide 3"></button>
+      <button class="slider-dot" onclick="goToSlide(3)" aria-label="Ir al slide 4"></button>
+    </div>
+  </section>
+
+  <main>
+    <!-- Manifesto -->
+    <section aria-labelledby="manifesto-title" class="fade-in">
+      <div class="container text-center">
+        <h2 id="manifesto-title">Atelier privado de costura</h2>
+        <p class="subtitle">
+          Cada prenda es tratada como una pieza única. No hay producción en masa. 
+          No hay prisa. Solo precisión milimétrica, proporción perfecta y trabajo artesanal.
+        </p>
+      </div>
+    </section>
+
+    <!-- About Yana -->
+    <section id="sobre" class="lux" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-photo fade-in">
+            <picture>
+              <source media="(max-width: 768px)" srcset="yana-mobile.jpg">
+              <img src="yana.jpg" alt="Yana Yavorskaya" loading="lazy">
+            </picture>
+          </div>
+          <div class="about-text fade-in">
+            <h2 id="about-title">Sobre Yana</h2>
+            <p>
+              Yana Yavorskaya es la mano y la mirada detrás de este atelier: cada prenda que
+              sale de aquí pasa por su análisis técnico, su patronaje y su acabado personal,
+              cuidando cada detalle como si fuera una pieza de alta costura.
+            </p>
+            <p>
+              Formada en técnicas tradicionales de sastrería y confección, trabajó en
+              Juliette Atelier, donde afinó el oficio de la alta costura. Hoy combina esa
+              precisión con un trato cercano y sin prisas — porque cada clienta y cada prenda
+              merecen tiempo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="servicios" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title" class="text-center">Intervenciones del atelier</h2>
+        
+        <div class="grid">
+          <article class="card fade-in">
+            <div class="card-image">
+              <picture>
+                <source media="(max-width: 768px)" srcset="https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=600&q=75">
+                <img src="https://images.unsplash.com/photo-1593032465175-481ac7f401a0?w=900&q=80" 
+                     alt="Diseño de alta costura a medida" loading="lazy" width="900" height="600">
+              </picture>
+            </div>
+            <div class="card-content">
+              <h3>Alta costura</h3>
+              <p>Diseño y confección desde cero con patrón propio, tejidos seleccionados y acabados artesanales.</p>
+            </div>
+          </article>
+
+          <article class="card fade-in">
+            <div class="card-image">
+              <picture>
+                <source media="(max-width: 768px)" srcset="ajuste-mobile.jpg">
+                <img src="ajuste.jpg" 
+                     alt="Ajuste de precisión: corrección técnica de una chaqueta a medida" loading="lazy" width="1024" height="559">
+              </picture>
+            </div>
+            <div class="card-content">
+              <h3>Ajuste de precisión</h3>
+              <p>Corrección técnica y adaptación de prendas para un ajuste perfecto a tu silueta.</p>
+            </div>
+          </article>
+
+          <article class="card fade-in">
+            <div class="card-image">
+              <picture>
+                <source media="(max-width: 768px)" srcset="antes-despues-2-mobile.jpg">
+                <img src="antes-despues-2.jpg"
+                     alt="Transformación y rediseño de prendas: vestido de gala antes y después" loading="lazy" width="900" height="600">
+              </picture>
+            </div>
+            <div class="card-content">
+              <h3>Transformación</h3>
+              <p>Rediseño completo con enfoque de atelier: da nueva vida a piezas con valor sentimental.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="proceso" class="lux" aria-labelledby="process-title">
+      <div class="container">
+        <h2 id="process-title" class="text-center">Proceso artesanal</h2>
+        <p class="subtitle text-center">
+          Un proceso silencioso, preciso y completamente manual que respeta la estructura original de cada prenda.
+        </p>
+
+        <div class="grid">
+          <article class="card fade-in">
+            <div class="card-image">
+              <picture>
+                <source media="(max-width: 768px)" srcset="diagnostico-mobile.png">
+                <img src="diagnostico.png" 
+                     alt="Diagnóstico: análisis técnico de tejido y estructura" loading="lazy" width="900" height="600">
+              </picture>
+            </div>
+            <div class="card-content">
+              <h3>1. Diagnóstico</h3>
+              <p>Análisis técnico de tejido, caída y estructura para definir la intervención ideal.</p>
+            </div>
+          </article>
+
+          <article class="card fade-in">
+            <div class="card-image">
+              <picture>
+                <source media="(max-width: 768px)" srcset="intervencion-mobile.png">
+                <img src="intervencion.png" 
+                     alt="Intervención: trabajo manual de costura artesanal" loading="lazy" width="900" height="600">
+              </picture>
+            </div>
+            <div class="card-content">
+              <h3>2. Intervención</h3>
+              <p>Trabajo manual de ajuste, forma y volumen con técnicas tradicionales de alta costura.</p>
+            </div>
+          </article>
+
+          <article class="card fade-in">
+            <div class="card-image">
+              <picture>
+                <source media="(max-width: 768px)" srcset="acabado-mobile.png">
+                <img src="acabado.png" 
+                     alt="Acabado final: refinamiento y control de calidad" loading="lazy" width="900" height="600">
+              </picture>
+            </div>
+            <div class="card-content">
+              <h3>3. Acabado final</h3>
+              <p>Refinamiento, control de calidad y entrega con atención al más mínimo detalle.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="galeria" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 id="gallery-title" class="text-center">Galería de trabajos</h2>
+        <p class="subtitle text-center">
+          Una selección de creaciones únicas realizadas en el atelier.
+        </p>
+        
+        <div class="gallery">
+          <div class="gallery-item fade-in" onclick="openLightbox(0)" role="button" tabindex="0">
+            <picture>
+              <source media="(max-width: 768px)" srcset="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&q=75">
+              <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80" alt="Vestido de alta costura" loading="lazy">
+            </picture>
+            <div class="gallery-overlay"><span>+</span></div>
+          </div>
+          <div class="gallery-item fade-in" onclick="openLightbox(1)" role="button" tabindex="0">
+            <picture>
+              <source media="(max-width: 768px)" srcset="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=75">
+              <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80" alt="Traje a medida" loading="lazy">
+            </picture>
+            <div class="gallery-overlay"><span>+</span></div>
+          </div>
+          <div class="gallery-item fade-in" onclick="openLightbox(2)" role="button" tabindex="0">
+            <picture>
+              <source media="(max-width: 768px)" srcset="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&q=75">
+              <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80" alt="Vestido de novia" loading="lazy">
+            </picture>
+            <div class="gallery-overlay"><span>+</span></div>
+          </div>
+          <div class="gallery-item fade-in" onclick="openLightbox(3)" role="button" tabindex="0">
+            <picture>
+              <source media="(max-width: 768px)" srcset="detalle-mobile.png">
+              <img src="detalle.png" alt="Detalle de bordado artesanal" loading="lazy">
+            </picture>
+            <div class="gallery-overlay"><span>+</span></div>
+          </div>
+          <div class="gallery-item fade-in" onclick="openLightbox(4)" role="button" tabindex="0">
+            <picture>
+              <source media="(max-width: 768px)" srcset="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&q=75">
+              <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600&q=80" alt="Vestido de noche" loading="lazy">
+            </picture>
+            <div class="gallery-overlay"><span>+</span></div>
+          </div>
+          <div class="gallery-item fade-in" onclick="openLightbox(5)" role="button" tabindex="0">
+            <picture>
+              <source media="(max-width: 768px)" srcset="confeccion-mobile.png">
+              <img src="confeccion.png" alt="Confección artesanal" loading="lazy">
+            </picture>
+            <div class="gallery-overlay"><span>+</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diario del atelier -->
+    <section id="antes-despues" class="lux" aria-labelledby="before-after-title">
+      <div class="container">
+        <h2 id="before-after-title" class="text-center">Trabajos del atelier</h2>
+        <p class="subtitle text-center">
+          No es un tutorial para casa. Es el oficio: diagnóstico, intervención a mano y acabado.
+          Trae la prenda a cita y se valora qué se puede hacer con ella.
+        </p>
+
+        <div class="atelier-cases">
+          <article class="atelier-case fade-in">
+            <div class="case-photo">
+              <picture>
+                <source media="(max-width: 768px)" srcset="antes-despues-1-mobile.jpg">
+                <img src="antes-despues-1.jpg" alt="Vestido floral: antes y después del trabajo de atelier" loading="lazy">
+              </picture>
+            </div>
+            <div class="case-body">
+              <div class="case-kicker">Transformación · Caso 01</div>
+              <h3>El vestido floral</h3>
+              <dl>
+                <dt>La prenda</dt>
+                <dd>Un vestido de flores que había perdido color, con bajo y mangas deshilachados.</dd>
+                <dt>Lo que se pidió</dt>
+                <dd>Recuperar el tejido y dejarlo listo para lucir, sin perder el estampado.</dd>
+                <dt>En el atelier</dt>
+                <dd>Se revisó la estructura, se remataron bajos y mangas y se recuperó color y caída. Trabajo de costurera, no de plancha rápida.</dd>
+              </dl>
+              <a class="btn" href="#contacto" onclick="pedirMismo('transformacion')">Quiero una transformación así</a>
+            </div>
+          </article>
+
+          <article class="atelier-case reverse fade-in">
+            <div class="case-photo">
+              <picture>
+                <source media="(max-width: 768px)" srcset="antes-despues-2-mobile.jpg">
+                <img src="antes-despues-2.jpg" alt="Vestido de gala en maniquí: antes y después del acabado" loading="lazy">
+              </picture>
+            </div>
+            <div class="case-body">
+              <div class="case-kicker">Acabado · Caso 02</div>
+              <h3>El vestido de gala</h3>
+              <dl>
+                <dt>La prenda</dt>
+                <dd>Vestido de encaje dorado y falda de gasa, con arrugas y sin el vapor que pide una fiesta.</dd>
+                <dt>Lo que se pidió</dt>
+                <dd>Que cayera limpio, como de atelier, sin rehacer el patrón entero.</dd>
+                <dt>En el atelier</dt>
+                <dd>Vaporizado y planchado profesional, revisión de encaje, hilos sueltos y caída de la falda hasta el suelo.</dd>
+              </dl>
+              <a class="btn" href="#contacto" onclick="pedirMismo('transformacion')">Quiero un acabado así</a>
+            </div>
+          </article>
+
+          <article class="atelier-case fade-in">
+            <div class="case-photo cover">
+              <picture>
+                <source media="(max-width: 768px)" srcset="ajuste-mobile.jpg">
+                <img src="ajuste.jpg" alt="Prueba de ajuste de precisión sobre chaqueta en el atelier" loading="lazy">
+              </picture>
+            </div>
+            <div class="case-body">
+              <div class="case-kicker">Ajuste de precisión · Caso 03</div>
+              <h3>La chaqueta que no caía</h3>
+              <dl>
+                <dt>La prenda</dt>
+                <dd>Chaqueta de lana que no sentaba en hombro, sisa y manga.</dd>
+                <dt>Lo que se pidió</dt>
+                <dd>Que quedara a la silueta, sin tirarla ni encargar una nueva.</dd>
+                <dt>En el atelier</dt>
+                <dd>Prueba sobre maniquí y cuerpo, hilvanado y corrección técnica de hombro y manga. El oficio está en lo que no se ve.</dd>
+              </dl>
+              <a class="btn" href="#contacto" onclick="pedirMismo('ajuste')">Quiero un ajuste así</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)" role="dialog" aria-modal="true" aria-label="Visor de imágenes">
+      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar visor">&times;</button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <section id="tarifas" aria-labelledby="pricing-title">
+      <div class="container">
+        <h2 id="pricing-title" class="text-center">Tarifas</h2>
+        <p class="subtitle text-center">
+          Precios orientativos. Cada proyecto es único y requiere presupuesto personalizado.
+        </p>
+        
+        <div class="pricing-grid">
+          <div class="pricing-card fade-in">
+            <h3>Ajuste Básico</h3>
+            <div class="price">35€<span>/prenda</span></div>
+            <ul class="pricing-features">
+              <li>Bajos de pantalón/falda</li>
+              <li>Ajuste de cintura</li>
+              <li>Cambio de cremalleras</li>
+              <li>Reparaciones simples</li>
+              <li>Entrega en 3-5 días</li>
+            </ul>
+            <a href="#contacto" class="btn btn-primary">Reservar</a>
+          </div>
+
+          <div class="pricing-card featured fade-in">
+            <h3>Alta Costura</h3>
+            <div class="price">350€<span>/desde</span></div>
+            <ul class="pricing-features">
+              <li>Diseño personalizado</li>
+              <li>Patrón a medida</li>
+              <li>Tejidos premium</li>
+              <li>3 pruebas de ajuste</li>
+              <li>Acabados artesanales</li>
+              <li>Entrega en 3-4 semanas</li>
+            </ul>
+            <a href="#contacto" class="btn btn-primary">Reservar</a>
+          </div>
+
+          <div class="pricing-card fade-in">
+            <h3>Transformación</h3>
+            <div class="price">120€<span>/desde</span></div>
+            <ul class="pricing-features">
+              <li>Rediseño completo</li>
+              <li>Cambio de estilo</li>
+              <li>Actualización de prendas</li>
+              <li>Valoración previa gratuita</li>
+              <li>Entrega en 2-3 semanas</li>
+            </ul>
+            <a href="#contacto" class="btn btn-primary">Reservar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sewing Classes -->
+    <section id="clases" class="lux" aria-labelledby="classes-title">
+      <div class="container">
+        <h2 id="classes-title" class="text-center">Clases de costura</h2>
+        <p class="subtitle text-center">
+          Aprende costura en el propio atelier, desde cero o para perfeccionar tu técnica. Todos los niveles, individuales o en grupos reducidos.
+        </p>
+
+        <div class="pricing-grid">
+          <div class="pricing-card fade-in">
+            <h3>Clase Individual</h3>
+            <div class="price">40€<span>/hora</span></div>
+            <ul class="pricing-features">
+              <li>Atención 100% personalizada</li>
+              <li>Horario a convenir</li>
+              <li>Todos los niveles, desde cero</li>
+              <li>Trabaja sobre tu propio proyecto</li>
+              <li>Primera clase de valoración gratuita</li>
+            </ul>
+            <a href="#contacto" class="btn btn-primary">Reservar</a>
+          </div>
+
+          <div class="pricing-card featured fade-in">
+            <h3>Clases en Grupo</h3>
+            <div class="price">65€<span>/mes</span></div>
+            <ul class="pricing-features">
+              <li>Grupos reducidos (máx. 5 alumnas)</li>
+              <li>1 sesión semanal de 2 horas</li>
+              <li>Todos los niveles</li>
+              <li>Máquina de coser y material básico incluidos</li>
+              <li>Ambiente cercano, sin permanencia</li>
+            </ul>
+            <a href="#contacto" class="btn btn-primary">Reservar</a>
+          </div>
+        </div>
+
+        <p class="text-center" style="margin-top: var(--space-6); font-size: 0.9rem; color: var(--color-text-muted, #777);">
+          Precios orientativos según tarifas habituales en Madrid. Se ajustan según nivel y proyecto — consulta sin compromiso.
+        </p>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonios" aria-labelledby="testimonials-title">
+      <div class="container">
+        <h2 id="testimonials-title" class="text-center">Lo que dicen mis clientas</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-stars" aria-label="5 de 5">★★★★★</div>
+            <p class="testimonial-quote">"Me hizo un vestido de noche desde cero. El patrón quedó impecable y el acabado parece de un atelier de otra liga. Salí de la prueba final sin un alfiler de más."</p>
+            <div class="testimonial-author">Elena M. · Alta costura</div>
+          </div>
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-stars" aria-label="4 de 5">★★★★<span class="star-off">★</span></div>
+            <p class="testimonial-quote">"Llevé una chaqueta que no me caía bien. El hombro y la cintura quedaron a mi medida. Tardó un poco más de lo previsto, pero el resultado merece la pena."</p>
+            <div class="testimonial-author">Carmen R. · Ajuste de precisión</div>
+          </div>
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-stars" aria-label="4 de 5">★★★★<span class="star-off">★</span></div>
+            <p class="testimonial-quote">"Transformó el vestido de mi madre para una boda. Conservó el encaje y le dio una silueta actual. El precio no es barato, pero el trabajo se nota."</p>
+            <div class="testimonial-author">Lucía P. · Transformación</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="lux" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title" class="text-center">Contacto</h2>
+        <p class="subtitle text-center">
+          Cuéntame tu proyecto. Responderé en menos de 24 horas.
+        </p>
+        
+        <div class="form-container fade-in">
+          <div id="formMessage" class="form-message"></div>
+          
+          <form action="https://formsubmit.co/ajax/yana140764@gmail.com" method="POST" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Nombre completo *</label>
+                <input type="text" id="name" name="name" required placeholder="Tu nombre">
+              </div>
+              <div class="form-group">
+                <label for="phone">Teléfono *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="638 753 937">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" required placeholder="tu@email.com">
+            </div>
+            
+            <div class="form-group">
+              <label for="service">Tipo de servicio *</label>
+              <select id="service" name="service" required>
+                <option value="">Selecciona un servicio</option>
+                <option value="alta-costura">Alta Costura</option>
+                <option value="ajuste">Ajuste de precisión</option>
+                <option value="transformacion">Transformación</option>
+                <option value="productos">Compra de prendas del atelier</option>
+                <option value="clases">Clases de costura</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Cuéntame sobre tu proyecto *</label>
+              <textarea id="message" name="message" required placeholder="Describe tu idea, tipo de prenda, tejido, fecha límite..."></textarea>
+            </div>
+            
+            <!-- Honeypot anti-spam (oculto) -->
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Nueva consulta - Yana Yavorskaya Atelier">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_autoresponse" value="Hemos recibido tu consulta en Yana Yavorskaya Atelier. Te responderemos lo antes posible.">
+            
+            <div class="form-group">
+              <label style="display: flex; align-items: flex-start; gap: var(--space-2); cursor: pointer;">
+                <input type="checkbox" required style="width: auto; margin-top: 4px;" name="privacidad">
+                <span style="font-size: 0.875rem; color: var(--color-text-light);">
+                  Acepto la <a href="#" onclick="openModal('privacidad')" style="text-decoration: underline;">política de privacidad</a> y el tratamiento de mis datos para gestionar mi consulta. *
+                </span>
+              </label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Enviar consulta
+            </button>
+            
+            <p style="margin-top: var(--space-4); font-size: 0.875rem; text-align: center; color: var(--color-text-light);">
+              O contáctame directamente: 
+              <a href="https://wa.me/34638753937" style="color: var(--color-accent); font-weight: 600;">WhatsApp</a> · 
+              <a href="tel:+34638753937" style="color: var(--color-accent); font-weight: 600;">638 753 937</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Hours -->
+    <section id="ubicacion" aria-labelledby="location-title">
+      <div class="container">
+        <h2 id="location-title" class="text-center">Ubicación y Horario</h2>
+        
+        <div class="info-grid">
+          <div class="info-card fade-in">
+            <h3>📍 Dirección</h3>
+            <p>
+              <strong>Yana Yavorskaya Atelier</strong><br>
+              Calle González Soto, 40, planta 1B<br>
+              28038 Madrid, España<br><br>
+              📞 638 753 937<br>
+              ✉️ yana140764@gmail.com
+            </p>
+            <p style="margin-top: var(--space-4);">
+              <strong>Cómo llegar:</strong><br>
+              Metro: Nueva Numancia / Puente de Vallecas (L1)
+            </p>
+          </div>
+          
+          <div class="info-card fade-in">
+            <h3>🕐 Horario de Atención</h3>
+            <table class="hours-table">
+              <tr>
+                <td>Lunes - Viernes</td>
+                <td>10:00 - 19:00</td>
+              </tr>
+              <tr>
+                <td>Sábados</td>
+                <td>10:00 - 14:00</td>
+              </tr>
+              <tr>
+                <td>Domingos</td>
+                <td>Cerrado</td>
+              </tr>
+              <tr>
+                <td>Festivos</td>
+                <td>Cerrado</td>
+              </tr>
+            </table>
+            <p style="margin-top: var(--space-4); font-size: 0.9rem;">
+              <em>* Atención exclusivamente bajo cita previa</em>
+            </p>
+          </div>
+        </div>
+        
+        <div id="map"></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title">Citas privadas en Madrid</h2>
+        <p>Atelier exclusivo · Atención individual bajo reserva · Sin producción en masa</p>
+        <a class="btn btn-outline" href="#contacto">Solicitar cita</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h4>Yana Yavorskaya Atelier</h4>
+          <p>
+            Alta costura artesanal en Madrid.<br>
+            Donde cada puntada cuenta una historia.
+          </p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="X" title="X">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Enlaces Rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#tarifas">Tarifas</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="openModal('avisoLegal'); return false;">Aviso Legal</a></li>
+            <li><a href="#" onclick="openModal('privacidad'); return false;">Política de Privacidad</a></li>
+            <li><a href="#" onclick="openModal('cookies'); return false;">Política de Cookies</a></li>
+            <li><a href="#" onclick="openModal('mapaSitio'); return false;">Mapa del sitio</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <p>
+            📍 Calle González Soto, 40, planta 1B<br>
+            28038 Madrid<br><br>
+            📞 638 753 937<br>
+            ✉️ yana140764@gmail.com
+          </p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 2026 Yana Yavorskaya Atelier — Madrid. Todos los derechos reservados.</p>
+        <p style="margin-top: var(--space-2); font-size: 0.75rem;">
+          Hecho con ✦ y pasión por la costura
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp -->
+  <a class="whatsapp" href="https://wa.me/34638753937" aria-label="Contactar por WhatsApp">WhatsApp</a>
+
+  <!-- Cookie Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="alert" aria-live="polite">
+    <div class="cookie-content">
+      <div class="cookie-text">
+        Utilizamos cookies técnicas y recursos de terceros (fuentes y mapa) para que el sitio funcione.
+        <a onclick="openModal('cookies')" style="cursor: pointer;">Más información</a>.
+      </div>
+      <div class="cookie-buttons">
+        <button class="cookie-btn reject" onclick="rejectCookies()">Rechazar</button>
+        <button class="cookie-btn accept" onclick="acceptCookies()">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal" id="avisoLegal" role="dialog" aria-modal="true" aria-labelledby="aviso-legal-title">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('avisoLegal')" aria-label="Cerrar">&times;</button>
+      <h2 id="aviso-legal-title">Aviso Legal</h2>
+      <p><em>Última actualización: 28 de agosto de 2026.</em></p>
+
+      <h3>1. Datos identificativos</h3>
+      <p>En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los siguientes datos:</p>
+      <ul>
+        <li><strong>Titular:</strong> Yana Yavorskaya</li>
+        <li><strong>Nombre comercial:</strong> Yana Yavorskaya Atelier</li>
+        <li><strong>Actividad:</strong> alta costura, ajuste, transformación de prendas y clases de costura, con cita previa</li>
+        <li><strong>Domicilio:</strong> Calle González Soto, 40, planta 1B, 28038 Madrid (España)</li>
+        <li><strong>Teléfono:</strong> 638 753 937</li>
+        <li><strong>Email:</strong> yana140764@gmail.com</li>
+        <li><strong>Web:</strong> https://yanayavorskaya.com</li>
+      </ul>
+
+      <h3>2. Objeto</h3>
+      <p>Este aviso regula el acceso, navegación y uso del sitio web, así como las responsabilidades derivadas de la consulta de contenidos y del uso de los formularios de contacto. El acceso implica la aceptación de estas condiciones.</p>
+
+      <h3>3. Condiciones de uso</h3>
+      <p>El usuario se compromete a hacer un uso lícito, diligente y de buena fe del sitio, sin lesionar derechos de terceros ni utilizarlo para enviar publicidad no solicitada, virus o contenidos ilícitos. Queda prohibido extraer de forma masiva datos o contenidos (scraping) sin autorización.</p>
+      <p>Los precios, plazos y descripciones de servicios son orientativos. Cada encargo se confirma de forma personalizada. La atención es exclusivamente bajo cita previa.</p>
+
+      <h3>4. Propiedad intelectual e industrial</h3>
+      <p>Textos, fotografías, logotipo, diseño, marcas y resto de contenidos son titularidad de Yana Yavorskaya o se usan con licencia. Queda prohibida su reproducción, distribución, comunicación pública o transformación sin autorización escrita, salvo el derecho de cita o usos permitidos por ley.</p>
+      <p>Las imágenes de trabajos muestran transformaciones reales del atelier. Otras imágenes pueden ser de archivo o ilustrativas.</p>
+
+      <h3>5. Responsabilidad</h3>
+      <p>Se procura que la información sea veraz y esté actualizada, sin garantizar la ausencia total de errores o de interrupciones del servicio (fallos de red, del hosting o de terceros). El titular no responde del uso que el usuario haga de la información ni de daños causados por un uso indebido del sitio.</p>
+      <p>Los enlaces a Instagram, Facebook, X, YouTube, WhatsApp, OpenStreetMap u otros sitios son responsabilidad de sus titulares.</p>
+
+      <h3>6. Comunicaciones</h3>
+      <p>Para cualquier notificación relacionada con este sitio, el canal preferente es yana140764@gmail.com. También puede usarse el teléfono o WhatsApp indicados en la web.</p>
+
+      <h3>7. Legislación y fuero</h3>
+      <p>Este aviso se rige por la legislación española. Para controversias, las partes se someten a los juzgados de Madrid, salvo que la normativa de consumidores imponga otro fuero.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="privacidad" role="dialog" aria-modal="true" aria-labelledby="privacidad-title">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('privacidad')" aria-label="Cerrar">&times;</button>
+      <h2 id="privacidad-title">Política de Privacidad</h2>
+      <p><em>Última actualización: 28 de agosto de 2026. Reglamento (UE) 2016/679 (RGPD) y Ley Orgánica 3/2018 (LOPDGDD).</em></p>
+
+      <h3>1. Responsable del tratamiento</h3>
+      <p><strong>Yana Yavorskaya</strong> (Yana Yavorskaya Atelier)<br>
+      Calle González Soto, 40, planta 1B, 28038 Madrid<br>
+      Email: yana140764@gmail.com · Teléfono: 638 753 937</p>
+
+      <h3>2. Datos que se recogen</h3>
+      <p>A través del formulario de contacto: nombre, teléfono, correo electrónico, tipo de servicio, mensaje y aceptación de esta política. Si escribes o llamas por WhatsApp, teléfono o email, se tratan los datos que tú facilites en esa conversación.</p>
+      <p>No se solicitan datos de categorías especiales (salud, ideología, etc.). No uses el formulario para enviar esa información.</p>
+
+      <h3>3. Finalidades y base jurídica</h3>
+      <ul>
+        <li><strong>Gestionar consultas, citas y encargos:</strong> ejecución de medidas precontractuales o del contrato (art. 6.1.b RGPD) y, en el formulario, tu consentimiento (art. 6.1.a).</li>
+        <li><strong>Atención por WhatsApp, teléfono o email:</strong> interés legítimo en responder (art. 6.1.f) y/o medidas precontractuales.</li>
+        <li><strong>Facturación y obligaciones legales:</strong> obligación legal (art. 6.1.c).</li>
+        <li><strong>Comunicaciones comerciales</strong> (novedades o ofertas): solo si das un consentimiento claro y separado. No se envía publicidad por el mero hecho de consultar.</li>
+      </ul>
+
+      <h3>4. Destinatarios y encargados</h3>
+      <p>Tus datos no se venden. Pueden acceder a ellos:</p>
+      <ul>
+        <li><strong>FormSubmit</strong> (formsubmit.co), para entregar el mensaje del formulario al correo del atelier. Este proveedor puede tratar datos fuera del Espacio Económico Europeo; el envío implica que aceptas esa transferencia para poder contactarnos por el formulario.</li>
+        <li>WhatsApp (Meta), si eliges ese canal.</li>
+        <li>Administración pública, cuando exista obligación legal.</li>
+        <li>Hosting y correo electrónico, en calidad de encargados o prestadores del servicio.</li>
+      </ul>
+
+      <h3>5. Conservación</h3>
+      <p>Las consultas se conservan el tiempo necesario para gestionarlas y, como máximo, 3 años desde el último contacto, salvo que deban bloquearse por plazos de reclamación o facturación (hasta los plazos fiscales, habitualmente 4 años o los que fije la normativa).</p>
+
+      <h3>6. Derechos</h3>
+      <p>Puedes ejercer acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <strong>yana140764@gmail.com</strong>, indicando el derecho y adjuntando copia del DNI u otro documento identificativo. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+      <p>Si el tratamiento se basa en consentimiento, puedes retirarlo en cualquier momento, sin afectar a la licitud anterior.</p>
+
+      <h3>7. Menores</h3>
+      <p>Los servicios se dirigen a personas mayores de 18 años. Si un menor envía datos, el titular los suprimirá cuando tenga constancia.</p>
+
+      <h3>8. Seguridad y cambios</h3>
+      <p>Se aplican medidas razonables para proteger los datos. Ningún envío por internet es 100 % seguro. Esta política puede actualizarse; la fecha figura al inicio.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="cookies" role="dialog" aria-modal="true" aria-labelledby="cookies-title">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('cookies')" aria-label="Cerrar">&times;</button>
+      <h2 id="cookies-title">Política de Cookies</h2>
+      <p><em>Última actualización: 28 de agosto de 2026. Ley 34/2002 (LSSI) y directrices del RGPD sobre cookies.</em></p>
+
+      <h3>1. Qué son las cookies</h3>
+      <p>Son pequeños archivos que el sitio o un tercero guarda en tu dispositivo para recordar información (por ejemplo, si aceptaste este aviso). También pueden usarse tecnologías similares, como el almacenamiento local del navegador.</p>
+
+      <h3>2. Cookies y almacenamientos propios</h3>
+      <ul>
+        <li><strong>Preferencia de cookies</strong> (<code>cookiesAccepted</code> en el almacenamiento local): recuerda si aceptaste o rechazaste el aviso. Es técnica, necesaria para no mostrar el banner en cada visita. Duración: hasta que borres los datos del navegador.</li>
+      </ul>
+      <p>No se instala Google Analytics ni otras cookies de medición publicitaria en este sitio.</p>
+
+      <h3>3. Recursos de terceros</h3>
+      <p>Al cargar la página se solicitan recursos externos que pueden establecer cookies o registros según su propia política:</p>
+      <ul>
+        <li><strong>Google Fonts</strong> (fuentes): fonts.googleapis.com / fonts.gstatic.com.</li>
+        <li><strong>Mapa</strong> (Leaflet y teselas de OpenStreetMap): unpkg.com y tile.openstreetmap.org. El mapa muestra la ubicación del atelier.</li>
+        <li><strong>Formulario:</strong> el envío se hace a FormSubmit para reenviar el mensaje a yana140764@gmail.com.</li>
+        <li><strong>Imágenes</strong> de archivo alojadas en Unsplash, cuando se muestren en galería o cabecera.</li>
+      </ul>
+      <p>Estos servicios son ajenos al atelier. Consulta sus políticas si quieres más detalle sobre sus cookies.</p>
+
+      <h3>4. Cómo gestionarlas</h3>
+      <p>Puedes aceptar o rechazar el aviso del banner. El rechazo no impide usar la web; solo guarda tu preferencia para no volver a mostrarlo. También puedes borrar cookies y datos de sitios en la configuración de Chrome, Safari, Firefox o Edge, o usar la navegación privada.</p>
+      <p>Si bloqueas cookies de terceros, el mapa o las fuentes podrían verse afectados.</p>
+
+      <h3>5. Más información</h3>
+      <p>Para ejercer derechos de protección de datos, consulta la Política de Privacidad o escribe a yana140764@gmail.com.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="mapaSitio" role="dialog" aria-modal="true" aria-labelledby="mapa-sitio-title">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('mapaSitio')" aria-label="Cerrar">&times;</button>
+      <h2 id="mapa-sitio-title">Mapa del sitio</h2>
+      <p>Índice de Yana Yavorskaya Atelier (https://yanayavorskaya.com).</p>
+      <div class="sitemap-grid">
+        <div>
+          <h3>Contenido</h3>
+          <ul class="footer-links">
+            <li><a href="#inicio" onclick="closeModal('mapaSitio')">Inicio</a></li>
+            <li><a href="#sobre" onclick="closeModal('mapaSitio')">Sobre Yana</a></li>
+            <li><a href="#servicios" onclick="closeModal('mapaSitio')">Servicios</a></li>
+            <li><a href="#proceso" onclick="closeModal('mapaSitio')">Proceso artesanal</a></li>
+            <li><a href="#galeria" onclick="closeModal('mapaSitio')">Galería</a></li>
+            <li><a href="#antes-despues" onclick="closeModal('mapaSitio')">Trabajos del atelier</a></li>
+            <li><a href="#tarifas" onclick="closeModal('mapaSitio')">Tarifas</a></li>
+            <li><a href="productos.html" onclick="closeModal('mapaSitio')">Productos</a></li>
+            <li><a href="#clases" onclick="closeModal('mapaSitio')">Clases de costura</a></li>
+            <li><a href="#testimonios" onclick="closeModal('mapaSitio')">Testimonios</a></li>
+            <li><a href="#contacto" onclick="closeModal('mapaSitio')">Contacto</a></li>
+            <li><a href="#ubicacion" onclick="closeModal('mapaSitio')">Ubicación y horario</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('avisoLegal'); return false;">Aviso Legal</a></li>
+            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('privacidad'); return false;">Política de Privacidad</a></li>
+            <li><a href="#" onclick="closeModal('mapaSitio'); openModal('cookies'); return false;">Política de Cookies</a></li>
+          </ul>
+          <h3>Contacto directo</h3>
+          <ul class="footer-links">
+            <li><a href="mailto:yana140764@gmail.com">yana140764@gmail.com</a></li>
+            <li><a href="tel:+34638753937">638 753 937</a></li>
+            <li><a href="https://wa.me/34638753937" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts con defer para carga optimizada -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script defer>
+  // ===== SLIDER =====
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.slider-dot');
+  let slideInterval;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      dots[i].classList.remove('active');
+    });
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+    currentSlide = index;
+  }
+
+  function changeSlide(direction) {
+    let newIndex = currentSlide + direction;
+    if (newIndex >= slides.length) newIndex = 0;
+    if (newIndex < 0) newIndex = slides.length - 1;
+    showSlide(newIndex);
+    resetInterval();
+  }
+
+  function goToSlide(index) {
+    showSlide(index);
+    resetInterval();
+  }
+
+  function nextSlide() {
+    changeSlide(1);
+  }
+
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 6000);
+  }
+
+  slideInterval = setInterval(nextSlide, 6000);
+
+  // ===== MOBILE MENU =====
+  function toggleMenu() {
+    document.getElementById('navMenu').classList.toggle('active');
+  }
+
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navMenu').classList.remove('active');
+    });
+  });
+
+  // ===== NAV SCROLL EFFECT =====
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.nav');
+    if (window.scrollY > 100) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // ===== LIGHTBOX =====
+  const galleryImages = [
+    { src: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1200&q=80', caption: 'Vestido de alta costura' },
+    { src: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1200&q=80', caption: 'Traje a medida' },
+    { src: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=1200&q=80', caption: 'Vestido de novia' },
+    { src: 'https://images.unsplash.com/photo-1612336307429-8a898d6529f5?w=1200&q=80', caption: 'Detalle de bordado artesanal' },
+    { src: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=1200&q=80', caption: 'Vestido de noche' },
+    { src: 'https://images.unsplash.com/photo-1550614000-4b9519e02e48?w=1200&q=80', caption: 'Confección artesanal' }
+  ];
+
+  function openLightbox(index) {
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    
+    img.src = galleryImages[index].src;
+    caption.textContent = galleryImages[index].caption;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(event) {
+    if (!event || event.target.id === 'lightbox' || event.target.className === 'lightbox-close') {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeLightbox();
+      document.querySelectorAll('.modal.active').forEach(modal => {
+        modal.classList.remove('active');
+      });
+    }
+  });
+
+  // ===== FORM HANDLING (correo + WhatsApp de respaldo para no perder la consulta) =====
+  document.getElementById('contactForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const messageDiv = document.getElementById('formMessage');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    const data = Object.fromEntries(new FormData(form).entries());
+    const waText = [
+      'Hola, te escribo desde la web.',
+      'Nombre: ' + data.name,
+      'Teléfono: ' + data.phone,
+      'Email: ' + data.email,
+      'Servicio: ' + data.service,
+      '',
+      data.message
+    ].join('\n');
+    const waUrl = 'https://wa.me/34638753937?text=' + encodeURIComponent(waText);
+
+    submitBtn.textContent = 'Enviando...';
+    submitBtn.disabled = true;
+
+    let mailed = false;
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/yana140764@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          _replyto: data.email,
+          service: data.service,
+          message: data.message,
+          _subject: 'Nueva consulta - Yana Yavorskaya Atelier',
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+      const result = await response.json().catch(() => ({}));
+      mailed = response.ok && result.success !== 'false' && result.success !== false;
+    } catch (error) {
+      mailed = false;
+    }
+
+    if (mailed) {
+      messageDiv.className = 'form-message success';
+      messageDiv.textContent = 'Mensaje enviado. Te responderé en menos de 24 horas.';
+      form.reset();
+    } else {
+      window.open(waUrl, '_blank', 'noopener');
+      messageDiv.className = 'form-message success';
+      messageDiv.innerHTML = 'Para que no se pierda tu consulta, se abre <strong>WhatsApp</strong> con el mensaje listo. Púlsalo enviar. También puedes escribir a <a href="mailto:yana140764@gmail.com">yana140764@gmail.com</a>.';
+    }
+
+    submitBtn.textContent = originalText;
+    submitBtn.disabled = false;
+    setTimeout(() => { messageDiv.className = 'form-message'; messageDiv.textContent = ''; }, 14000);
+  });
+
+  // ===== MODALS =====
+  function pedirMismo(servicio) {
+    const sel = document.getElementById('service');
+    if (sel) sel.value = servicio;
+  }
+
+  function openModal(modalId) {
+    document.getElementById(modalId).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(modalId) {
+    document.getElementById(modalId).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.modal').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // ===== COOKIES =====
+  function checkCookies() {
+    const accepted = localStorage.getItem('cookiesAccepted');
+    if (!accepted) {
+      setTimeout(() => {
+        const banner = document.getElementById('cookieBanner');
+        banner.classList.add('show');
+        document.body.classList.add('has-cookie-banner');
+      }, 1000);
+    }
+  }
+
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookieBanner').classList.remove('show');
+    document.body.classList.remove('has-cookie-banner');
+  }
+
+  function rejectCookies() {
+    localStorage.setItem('cookiesAccepted', 'false');
+    document.getElementById('cookieBanner').classList.remove('show');
+    document.body.classList.remove('has-cookie-banner');
+  }
+
+  // ===== SCROLL ANIMATIONS =====
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ===== MAP =====
+  function initMap() {
+    const map = L.map('map').setView([40.40005, -3.66257], 16);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    L.marker([40.40005, -3.66257]).addTo(map)
+      .bindPopup('<strong>Yana Yavorskaya Atelier</strong><br>Calle González Soto, 40, planta 1B<br>28038 Madrid')
+      .openPopup();
+  }
+
+  // ===== INITIALIZE =====
+  document.addEventListener('DOMContentLoaded', () => {
+    checkCookies();
+    initMap();
+  });
+</script>
+  <script src="asistente.js" defer></script>
+</body>
+</html>

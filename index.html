@@ -22,8 +22,9 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   
   <!-- Preload critical resources -->
-  <link rel="preload" href="logo-yy.png" as="image">
-  <link rel="preload" href="header-camisas.jpg" as="image">
+  <link rel="preload" href="logo-yy.webp" as="image" type="image/webp">
+  <link rel="preload" href="header-camisas-m.webp" as="image" type="image/webp" media="(max-width: 768px)">
+  <link rel="preload" href="header-camisas.webp" as="image" type="image/webp" media="(min-width: 769px)">
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo-yy.png">
@@ -259,6 +260,12 @@
     }
     
     .slide.active { opacity: 1; }
+
+    @media (max-width: 768px) {
+      .slide.lcp-hero {
+        background-image: url('header-camisas-m.webp') !important;
+      }
+    }
     
     .slide-content {
       position: relative;
@@ -1203,7 +1210,7 @@
   <nav class="nav" role="navigation" aria-label="Navegación principal">
     <div class="container nav-container">
       <a href="#" class="logo">
-        <img class="logo-ysl" src="logo-yy.png" alt="Logo Yana Yavorskaya - YY entrelazadas doradas" width="75" height="75">
+        <img class="logo-ysl" src="logo-yy.webp" alt="Logo Yana Yavorskaya - YY entrelazadas doradas" width="75" height="75">
         <div>
           <div class="logo-text">YANA YAVORSKAYA</div>
           <div class="logo-tagline">Alta Costura Madrid</div>
@@ -1230,7 +1237,7 @@
 
   <!-- Hero Slider -->
   <section class="hero-slider" id="inicio" role="banner">
-    <div class="slide active" style="background-image: url('header-camisas.jpg');">
+    <div class="slide active lcp-hero" style="background-image: url('header-camisas.webp');">
       <div class="slide-content">
         <h1>Yana Yavorskaya</h1>
         <p class="tagline">Donde cada puntada cuenta una historia</p>
@@ -1239,7 +1246,7 @@
       </div>
     </div>
     
-    <div class="slide" style="background-image: url('header-costura.jpg');">
+    <div class="slide" data-bg="header-costura.webp" data-bg-m="header-costura-m.webp">
       <div class="slide-content">
         <h1>Alta Costura</h1>
         <p class="tagline">Exclusividad y artesanía en cada detalle</p>
@@ -1248,7 +1255,7 @@
       </div>
     </div>
 
-    <div class="slide" style="background-image: url('header-atelier.jpg');">
+    <div class="slide" data-bg="header-atelier.webp" data-bg-m="header-atelier-m.webp">
       <div class="slide-content">
         <h1>Cita privada</h1>
         <p class="tagline">Un armario, una costurera, sin prisa</p>
@@ -1257,7 +1264,7 @@
       </div>
     </div>
     
-    <div class="slide" style="background-image: url('antes-despues-1.jpg'); background-position: center 18%;">
+    <div class="slide" data-bg="antes-despues-1.webp" data-bg-m="antes-despues-1-m.webp" style="background-position: center 18%;">
       <div class="slide-content">
         <h1>Transformación</h1>
         <p class="tagline">Da nueva vida a tus prendas favoritas</p>
@@ -1295,8 +1302,8 @@
         <div class="about-grid">
           <div class="about-photo fade-in">
             <picture>
-              <source media="(max-width: 768px)" srcset="yana-mobile.jpg">
-              <img src="yana.jpg" alt="Yana Yavorskaya" loading="lazy">
+              <source type="image/webp" media="(max-width: 768px)" srcset="yana-mobile.webp">
+              <img src="yana.webp" alt="Yana Yavorskaya" loading="lazy" width="800" height="1000">
             </picture>
           </div>
           <div class="about-text fade-in">
@@ -1340,8 +1347,8 @@
           <article class="card fade-in">
             <div class="card-image">
               <picture>
-                <source media="(max-width: 768px)" srcset="ajuste-mobile.jpg">
-                <img src="ajuste.jpg" 
+                <source media="(max-width: 768px)" srcset="ajuste-mobile.webp">
+                <img src="ajuste.webp" 
                      alt="Ajuste de precisión: corrección técnica de una chaqueta a medida" loading="lazy" width="1024" height="559">
               </picture>
             </div>
@@ -1354,8 +1361,8 @@
           <article class="card fade-in">
             <div class="card-image">
               <picture>
-                <source media="(max-width: 768px)" srcset="antes-despues-2-mobile.jpg">
-                <img src="antes-despues-2.jpg"
+                <source media="(max-width: 768px)" srcset="antes-despues-2-mobile.webp">
+                <img src="antes-despues-2.webp"
                      alt="Transformación y rediseño de prendas: vestido de gala antes y después" loading="lazy" width="900" height="600">
               </picture>
             </div>
@@ -1380,8 +1387,8 @@
           <article class="card fade-in">
             <div class="card-image">
               <picture>
-                <source media="(max-width: 768px)" srcset="diagnostico-mobile.png">
-                <img src="diagnostico.png" 
+                <source media="(max-width: 768px)" srcset="diagnostico-mobile.webp">
+                <img src="diagnostico.webp" 
                      alt="Diagnóstico: análisis técnico de tejido y estructura" loading="lazy" width="900" height="600">
               </picture>
             </div>
@@ -1394,8 +1401,8 @@
           <article class="card fade-in">
             <div class="card-image">
               <picture>
-                <source media="(max-width: 768px)" srcset="intervencion-mobile.png">
-                <img src="intervencion.png" 
+                <source media="(max-width: 768px)" srcset="intervencion-mobile.webp">
+                <img src="intervencion.webp" 
                      alt="Intervención: trabajo manual de costura artesanal" loading="lazy" width="900" height="600">
               </picture>
             </div>
@@ -1408,8 +1415,8 @@
           <article class="card fade-in">
             <div class="card-image">
               <picture>
-                <source media="(max-width: 768px)" srcset="acabado-mobile.png">
-                <img src="acabado.png" 
+                <source media="(max-width: 768px)" srcset="acabado-mobile.webp">
+                <img src="acabado.webp" 
                      alt="Acabado final: refinamiento y control de calidad" loading="lazy" width="900" height="600">
               </picture>
             </div>
@@ -1454,8 +1461,8 @@
           </div>
           <div class="gallery-item fade-in" onclick="openLightbox(3)" role="button" tabindex="0">
             <picture>
-              <source media="(max-width: 768px)" srcset="detalle-mobile.png">
-              <img src="detalle.png" alt="Detalle de bordado artesanal" loading="lazy">
+              <source media="(max-width: 768px)" srcset="detalle-mobile.webp">
+              <img src="detalle.webp" alt="Detalle de bordado artesanal" loading="lazy">
             </picture>
             <div class="gallery-overlay"><span>+</span></div>
           </div>
@@ -1468,8 +1475,8 @@
           </div>
           <div class="gallery-item fade-in" onclick="openLightbox(5)" role="button" tabindex="0">
             <picture>
-              <source media="(max-width: 768px)" srcset="confeccion-mobile.png">
-              <img src="confeccion.png" alt="Confección artesanal" loading="lazy">
+              <source media="(max-width: 768px)" srcset="confeccion-mobile.webp">
+              <img src="confeccion.webp" alt="Confección artesanal" loading="lazy">
             </picture>
             <div class="gallery-overlay"><span>+</span></div>
           </div>
@@ -1490,8 +1497,8 @@
           <article class="atelier-case fade-in">
             <div class="case-photo">
               <picture>
-                <source media="(max-width: 768px)" srcset="antes-despues-1-mobile.jpg">
-                <img src="antes-despues-1.jpg" alt="Vestido floral: antes y después del trabajo de atelier" loading="lazy">
+                <source media="(max-width: 768px)" srcset="antes-despues-1-mobile.webp">
+                <img src="antes-despues-1.webp" alt="Vestido floral: antes y después del trabajo de atelier" loading="lazy">
               </picture>
             </div>
             <div class="case-body">
@@ -1512,8 +1519,8 @@
           <article class="atelier-case reverse fade-in">
             <div class="case-photo">
               <picture>
-                <source media="(max-width: 768px)" srcset="antes-despues-2-mobile.jpg">
-                <img src="antes-despues-2.jpg" alt="Vestido de gala en maniquí: antes y después del acabado" loading="lazy">
+                <source media="(max-width: 768px)" srcset="antes-despues-2-mobile.webp">
+                <img src="antes-despues-2.webp" alt="Vestido de gala en maniquí: antes y después del acabado" loading="lazy">
               </picture>
             </div>
             <div class="case-body">
@@ -1534,8 +1541,8 @@
           <article class="atelier-case fade-in">
             <div class="case-photo cover">
               <picture>
-                <source media="(max-width: 768px)" srcset="ajuste-mobile.jpg">
-                <img src="ajuste.jpg" alt="Prueba de ajuste de precisión sobre chaqueta en el atelier" loading="lazy">
+                <source media="(max-width: 768px)" srcset="ajuste-mobile.webp">
+                <img src="ajuste.webp" alt="Prueba de ajuste de precisión sobre chaqueta en el atelier" loading="lazy">
               </picture>
             </div>
             <div class="case-body">
@@ -2077,11 +2084,20 @@
   const dots = document.querySelectorAll('.slider-dot');
   let slideInterval;
 
+  function applySlideBg(slide) {
+    if (!slide || slide.style.backgroundImage.indexOf('url(') !== -1) return;
+    const mobile = window.matchMedia('(max-width: 768px)').matches;
+    const url = (mobile && slide.dataset.bgM) ? slide.dataset.bgM : slide.dataset.bg;
+    if (url) slide.style.backgroundImage = "url('" + url + "')";
+  }
+
   function showSlide(index) {
     slides.forEach((slide, i) => {
       slide.classList.remove('active');
       dots[i].classList.remove('active');
     });
+    applySlideBg(slides[index]);
+    applySlideBg(slides[(index + 1) % slides.length]);
     slides[index].classList.add('active');
     dots[index].classList.add('active');
     currentSlide = index;
@@ -2109,6 +2125,7 @@
     slideInterval = setInterval(nextSlide, 6000);
   }
 
+  applySlideBg(slides[1]);
   slideInterval = setInterval(nextSlide, 6000);
 
   // ===== MOBILE MENU =====

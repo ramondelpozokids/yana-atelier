@@ -1,5 +1,5 @@
 (function () {
-  const LOGO = 'logo-asistente.png';
+  const LOGO = 'logo-asistente.webp';
   const WA = 'https://wa.me/34638753937';
 
   const QUICK = [
